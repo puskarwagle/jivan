@@ -1,0 +1,94 @@
+#database{
+	text-align:center;
+}
+#clientDetails{
+	text-align:left;
+}
+#database #dataLogo{
+	width:8rem;
+	position:absolute;
+	left:2rem;
+	top:0.5rem;
+}
+form#clientForm{
+	border:2px solid;
+	border-radius:10px;
+	position:relative;
+}
+#clientImgDiv{
+	position:absolute;
+	display:flex;
+	flex-direction:column;
+	right:4rem;
+	top:1rem;
+	border:3px solid red;
+}
+#clientImg{
+	width:8rem;
+}
+#clientForm #backG {
+	position:absolute;
+	width:100%;
+	height:100%;
+	z-index:-4;
+	filter:opacity(4%);
+}
+#clientForm input{
+	margin-bottom:1rem;
+}
+#clientForm label{
+	border:0px solid red;
+	width:20%;
+}
+#clientForm field.text{
+	display:flex;
+}
+#clientForm fieldset{
+	text-align:left;
+	border:0px solid blue;
+}
+fieldset#infoFieldset input{
+	width:50%;
+}
+fieldset#substancesField{
+	display:flex;
+	flex-direction:column;
+}
+fieldset#clientBought{
+	display:flex;
+	flex-direction:column;
+}
+fieldset#clientHealth{
+	display:flex;
+	flex-direction:column;
+}
+fieldset#clientHealth2 label{
+	width:35%;
+}
+fieldset#clientHealth2 input{
+	width:50%;
+}
+#database button{
+	font-size:2rem;
+	margin:2rem 2rem;
+	color:white;
+	border:none;
+	border-radius:10px;
+}
+#database button#save{
+	background:#1fd655;
+}
+#database button#save:hover{
+	background:#008631;
+}
+#database button#cancel{
+	background:#ed3419;
+}
+#database button#cancel:hover{
+	background:#c61a09;
+}
+#dataDiv{
+	border:3px solid pink;
+	height:100vh;
+	text-align:left;
+}

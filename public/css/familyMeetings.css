@@ -1,0 +1,55 @@
+#TextBox{
+	display:flex;
+	gap:1rem;
+	padding:4rem 1rem 2rem 3rem;
+}
+#TextBox #Texts h1{
+	font-size:4vw;
+	margin-bottom:3.5vw;
+	color:#4f5b73;
+}
+#TextBox #Texts {padding:0rem 2rem 0rem 0rem;}
+#TextBox #Texts p:nth-child(2){
+	font-size:1.9vw;
+	font-weight:100;
+	line-height:150%;
+	margin-bottom:2.5vw;
+	text-align: justify;
+}
+#TextBox #Texts p:nth-child(3){
+	font-size:2.5vw;
+	font-weight:100;
+	line-height:160%;
+	margin-bottom:1rem;
+	color:#4f5b73;
+}
+#TextBox #Texts p:nth-child(4){font-size:2.5vw;}
+
+#SanuBox{
+	height:100%;
+	color:#4f5b73;
+	text-align:left;
+	border:1px solid #4f5b73;
+	border-top:5px solid #4f5b73;
+	background-color:#FAF9F6;
+}
+#SanuBox h1{
+	padding:2rem 2.5rem 1rem 1rem;
+}
+#SanuBox div:nth-child(2){
+	width:80%;
+	height:0.5px;
+	background-color:#4f5b73;
+	margin:0rem 1rem 1rem 1rem;
+	opacity:0.5;
+}
+#SanuBox h3{
+	margin:1rem 1rem 1rem 1rem;
+	opacity:0.8;
+}
+#SanuBox h3:hover{
+	opacity:1;
+}
+@media only screen and (max-width: 765px) {
+	#TextBox{display:flex;flex-direction:column;}
+}

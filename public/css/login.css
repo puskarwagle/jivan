@@ -1,0 +1,41 @@
+* {
+  caret-color:transparent;
+  color:white;
+}
+body {
+  background-color:cornflowerblue;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}  
+#login {
+	text-align:center;
+	display:inline-block;
+	border:2px solid;
+	border-radius:5px;
+	padding: 4rem 4rem;
+}
+input {
+  margin-bottom:1rem;
+  border:none;
+  border-bottom:1px solid white;
+  background-color:transparent;
+}
+input:focus {
+ outline:none;
+ border:none;
+ border-bottom:1px solid orange;
+ caret-color:auto;
+}
+button {
+  border:none;
+  border-radius:3px;
+  padding:0.5rem 0.5rem;
+  background-color:transparent;
+  font-size:1.5rem;
+  float:right;
+}
+button:hover {
+  outline:1px solid white;
+  padding:0.5rem 0.5rem;
+}

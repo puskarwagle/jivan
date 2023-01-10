@@ -1,0 +1,173 @@
+<head>
+  <link rel="stylesheet" href="./css/database.css">
+</head>
+
+<body>
+  <div id="database">
+    <div id="header">
+    	<img id="dataLogo" src="./images/nayaJeevan.png" alt="sudhar kendra logo">
+      <h1>Naya Jeevan Sudhar Kendra pra li</h1>
+      <h3>Drug Addiction treatment and Rehabilitation Center</h3>
+      <h3>Nawalpur, Lalbandi-1, Sarlahi</h3>
+    </div>
+    
+    <div id="clientDetails">
+      <form id="clientForm">
+      	<img id="backG" src="./images/image.png" alt="background image">
+      	
+      	<div id="clientImgDiv">
+      		<img id="clientImg" src="./images/clients/clientDefault.png" alt="client image">
+      	</div>
+      	
+        <fieldset id="infoFieldset">
+        	<h3>Client Details</h3>
+        	
+        	<field class='text'>
+          	<label for="uniqueId">Unique id:</label>
+          	<input type="number" name="id" id="uniqueId"><br>
+          </field>
+        	
+        	<field class='text'>
+          	<label for="name">Name:</label>
+          	<input type="text" name="name" id="name"><br>
+          </field>
+          
+        	<field class='text'>
+          	<label for="admission">Admission:</label>
+          	<input type="date" name="admission" id="admission" ><br>
+          </field>
+          
+          <field class='text'>
+          	<label for="age">Age:</label>
+          	<input type="number" name="age" id="age"><br>
+          </field>
+          
+          <field class='text'>
+          	<label for="maritial">Maitial status:</label>
+          	<input type="text" name="maritial" id="maritial"><br>
+          </field>
+          
+          <field class='text'>
+          	<label for="education">Education qualification:</label>
+          	<input type="text" name="education" id="education"><br>
+          </field>
+          
+          <field class='text'>
+          	<label for="proffession">Profession:</label>
+          	<input type="text" name="profession" id="profession"><br>
+          </field>
+          
+          <field class='text'>
+          	<label for="father">Father's name:</label>
+          	<input type="text" name="father" id="father"><br>
+          </field>
+          
+          <field class='text'>
+          	<label for="mother">Mother's name:</label>
+          	<input type="text" name="mother" id="mother"><br>
+          </field>
+          
+          <field class='text'>
+          	<label for="spouse">Spouse's name:</label>
+          	<input type="text" name="spouse" id="spouse"><br>
+          </field>
+          
+          <field class='text'>
+          	<label for="address">Full Address:</label>
+          	<input type="text" name="address" id="address"><br>
+          </field>
+          
+          <field class='text'>
+          	<label for="contact1">Contact 1:</label>
+          	<input type="number" name="contact1" id="contact1"><br>
+          </field>
+          
+          <field class='text'>
+          	<label for="contact2">Contact 2:</label>
+          	<input type="number" name="contact2" id="contact2"><br>
+          </field>
+          
+          <field class='text'>
+          	<label for="years">No. of years addicted:</label>
+          	<input type="number" name="years" id="years"><br>
+          </field>
+        </fieldset>
+        
+        
+        <fieldset id="substancesField">
+        	<h4>Abused Substances:</h4>
+          <label for="Alcohol">Alcohol</label>
+          <input type="checkbox" id="Alcohol" name="Substances" value="Alcohol">
+          <label for="Cannabis">Cannabis</label>
+          <input type="checkbox" id="Cannabis" name="Substances" value="Cannabis">
+          <label for="CoughSyrup">Cough Syrup</label>
+          <input type="checkbox" id="CoughSyrup" name="Substances" value="CoughSyrup">
+          <label for="Rakshi">Cigarette</label>
+          <input type="checkbox" id="Cigarette" name="Substances" value="Cigarette">
+          <label for="Women">Women & Porn</label>
+          <input type="checkbox" id="Women" name="Substances" value="Women">
+          <label for="Tablets">Tablets</label>
+          <input type="checkbox" id="Tablets" name="Substances" value="Tablets">
+          <label for="VideoGames">Video Games</label>
+          <input type="checkbox" id="VideoGames" name="Substances" value="Video Games">
+          <label for="Behavioural">Behavioural</label>
+          <input type="checkbox" id="Behavioural" name="Substances" value="Behavioural">
+        </fieldset>
+        
+        
+        <fieldset id="clientBought">
+        	<h4>Type of admission:</h4>
+          <label for="Surrender">Self/Surrender</label>
+          <input type="checkbox" id="Surrender" name="AdmittedBy" value="Surrender">
+          <label for="Family">Forcefully by Family</label>
+          <input type="checkbox" id="Family" name="AdmittedBy" value="Family">
+          <label for="Government">Government Authority</label>
+          <input type="checkbox" id="Government" name="AdmittedBy" value="Government">
+          <label for="Other">Other</label>
+          <input type="checkbox" id="Other" name="AdmittedBy" value="Other">
+        </fieldset>
+        
+        
+        <fieldset id="clientHealth">
+        	<h4>State of Health at enrollment:</h4>
+          <label for="Good">Good</label>
+          <input type="checkbox" id="Good" name="Health" value="Good">
+          <label for="Okay">Okay</label>
+          <input type="checkbox" id="Okay" name="Health" value="Okay">
+          <label for="Weak">Weak</label>
+          <input type="checkbox" id="Weak" name="Health" value="Weak">
+          <label for="VeryWeak">Very Weak</label>
+          <input type="checkbox" id="VeryWeak" name="Health" value="VeryWeak">
+        </fieldset>
+        
+        <fieldset id="clientHealth2">
+        	<field class='text'>
+          	<label for="diseases">Diseases or any pre-conditons if any:</label>
+          	<input type="text" name="diseases" id="diseases"><br>
+          </field>
+          
+          <field class='text'>
+          	<label for="Weight">Weight:</label>
+          	<input type="number" name="Weight" id="Weight"><br>
+          </field>
+          
+          <field class='text'>
+          	<label for="medication">If needs any medication:</label>
+          	<input type="text" name="medication" id="medication"><br>
+          </field>
+        </fieldset>
+        
+     		<button id="save" type="submit">Save</button>
+    		<button id="cancel">Cancel</button>
+      </form> <!--form -->
+    </div>	<!-- id=clientDetails -->
+    
+    <div id="dataDiv">
+    	<h1>The database</h1>
+    	<pre></pre>
+    </div>
+    
+  </div>		<!-- id=database -->
+  <script type="module" src="../js/database.js"></script>
+</body>
+

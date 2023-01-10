@@ -1,0 +1,82 @@
+#TextBox{
+	display:flex;
+	gap:2vw;
+	padding:4vw 1vw 6vw 4vw;
+	border:0px solid red;
+}
+#TextBox h1{
+	font-size:4vw;
+	font-weight:800;
+	margin-bottom:3vw;
+	color:#4f5b73;
+}
+#TextBox #Texts {
+	border:0px solid rgb(255, 0, 191);
+	min-width:70vw;
+}
+#TextBox #Texts .FQ{
+	border:0px solid green;
+	margin-bottom:0vw;
+}
+#TextBox #Texts .faqQ {
+	display:flex;
+	align-items: center;
+	gap:40vw;
+	border-bottom:1px solid #4f5b73;
+	padding:2vw 2.5vw 2vw 2.5vw;
+}
+#TextBox #Texts #fq1{
+	border-top:1px solid #4f5b73;
+}
+.blue {
+	background-color: cornflowerblue;
+	color: white;
+}
+.down::before {
+	content: "o";
+}
+.up::before {
+	content: "-";
+}
+#TextBox #Texts .question {
+	width:100%;
+	white-space: nowrap;
+	font-size:2vw; 
+}
+#TextBox #Texts .faqA{
+	border:0px solid blue;
+	background-color: whitesmoke;
+	padding:2.5vw 2.5vw 2.5vw 2.5vw;
+}
+#TextBox #Texts .answer {
+	line-height:150%;
+}
+#SanuBox {
+	height:100%;
+	width:100%;
+	color:#4f5b73;
+	text-align:left;
+	border:1px solid #4f5b73;
+	border-top:5px solid #4f5b73;
+	background-color:#FAF9F6;
+}
+#SanuBox h1{
+	padding:2rem 2.5rem 1rem 1rem;
+}
+#SanuBox div:nth-child(2){
+	width:80%;
+	height:0.5px;
+	background-color:#4f5b73;
+	margin:0rem 1rem 1rem 1rem;
+	opacity:0.5;
+}
+#SanuBox h3{
+	margin:1rem 1rem 1rem 1rem;
+	opacity:0.8;
+}
+#SanuBox h3:hover{
+	opacity:1;
+}
+@media only screen and (max-width: 765px) {
+	#TextBox{display:flex;flex-direction:column;}
+}

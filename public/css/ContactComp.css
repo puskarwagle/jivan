@@ -1,0 +1,66 @@
+#ContactComp{
+	color:#4f5b73;
+}
+#GoogleMap{
+	height:70vh;
+	border:3px solid #4f5b73;
+}
+#ContactFormDiv{
+	display:flex;
+	justify-content:space-between;
+	height:100vh;
+	border:1px solid red;
+	padding:3rem 3rem 4rem 3rem;
+}
+#VisibleRecovery{
+	display:grid;
+	grid-template-columns: auto auto;
+	grid-template-rows: auto auto auto;
+	height:60%;
+}
+.grid-item{
+	background-color: rgba(255, 255, 255, 0.8);
+  padding:0rem 1rem 0rem 1rem;
+}
+.grid-item:nth-child(1){
+	grid-column: 1 / span 2;
+}
+#ContactFormsHo{
+	display:flex;
+	flex-direction:column;
+}
+#ContactFormsHo h1{margin-left:1rem;}
+#ContactForm{
+	display:flex;
+	flex-direction:column;
+	padding:1rem 1rem 1rem 1rem;
+	width:40vw;
+}
+#ContactForm input[type="text"],
+#ContactForm input[type="tel"],
+#ContactForm input[type="email"],
+#ContactForm textarea {
+  background-color: #FFFFFF;
+  border: 1px solid rgb(174,174,174);
+  height: 2.5rem;
+  width: 100%;
+  cursor: pointer;
+  caret-color: #00ccff;
+  margin: auto auto 1rem 0rem;
+  padding:1rem 1rem 1rem 1rem;
+}
+#ContactForm textarea{height:inherit}
+#ContactForm input:focus,
+#ContactForm textarea:focus{
+  outline:none;
+  border:1px solid #00ccff;
+}
+#ContactForm button{
+  display:inline-block;
+  padding:1rem 1rem 1rem 1rem;
+  margin:2rem 1rem 1rem 1rem;
+}
+#ContactForm button:hover{
+  color:#00ccff;
+  border:1px solid #00ccff;
+}

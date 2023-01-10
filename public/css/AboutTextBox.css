@@ -1,0 +1,64 @@
+#TextBox{
+	display:flex;
+	justify-content: space-between;
+	gap:2vw;
+	padding:8vw 8vw 4vw 8vw;
+	border:0px solid salmon;
+}
+#TextBox #Texts {
+	display: inline-flex;
+	flex-direction:column;
+	padding:0vw 0vw 0vw 0vw;
+	min-width:50vw;
+	max-width:60vw;
+	border:0px solid salmon;
+}
+#TextBox #Texts h1{
+	margin-bottom:2.5vw;
+	color:#4f5b73;
+}
+#TextBox #Texts p:nth-child(2){
+	font-size:1.3vw;
+	font-weight:100;
+	line-height:150%;
+	margin-bottom:2.5vw;
+	text-align:justify;
+}
+#TextBox #Texts p:nth-child(3){
+	font-size:1.3vw;
+	font-weight:100;
+	line-height:160%;
+	margin-bottom:1vw;
+	color:#4f5b73;
+}
+#TextBox #Texts p:nth-child(4){font-size:2.5vw;}
+
+#SanuBox{
+	height:100%;
+	width:100%;
+	color:#4f5b73;
+	text-align:left;
+	border:1px solid ;
+	border-top:5px solid #4f5b73;
+	background-color:#FAF9F6;
+	padding:1vw 1vw 1vw 1vw;
+}
+#SanuBox h1{
+	padding:0vw 2.5vw 1vw 1vw;
+}
+#SanuBox div{
+	height:0.5px;
+	background-color:#4f5b73;
+	margin:0vw 1vw 1vw 1vw;
+	opacity:0.5;
+}
+#SanuBox h3{
+	margin:1vw 1vw 1vw 1vw;
+	opacity:0.8;
+}
+#SanuBox h3:hover{
+	opacity:1;
+}
+@media only screen and (max-width: 765px) {
+	#TextBox{display:flex;flex-direction:column;}
+}

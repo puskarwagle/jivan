@@ -1,0 +1,50 @@
+#SecondComp{
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	padding:13.2vw 10vw 8vw 10vw;
+	border:0px solid red;
+}
+#SecondCompTexts{
+	border:0px solid blue;	
+}
+#sickTired{
+	font-size:2.7vw;
+	line-height:120% !important;
+	font-weight:600;	
+	margin-bottom:2vw;
+	color:#4f5b73;
+	width:100%;
+}
+#SecondCompTexts p:nth-child(2){
+	line-height:160%;
+	font-size:1.4vw;
+	text-align: justify;
+}
+#changeisHard{
+	margin-top:3vw;
+	font-size:1.5vw;
+	color:#4f5b73;
+}
+#SecondCompImgDiv {
+	display:flex;
+	justify-content:center;
+	align-content:center;
+	padding:0vw 0vw 0vw 2vw;
+	border:0px solid red;
+}
+#SecondCompImg {
+	width:35vw;
+	aspect-ratio: 1 / 0.8;
+	border:0px solid red;
+}
+@media only screen and (max-width: 765px) {
+  #SecondComp {
+		display:flex;
+		flex-direction:column;
+	}
+	#SecondCompImg {
+		width:40vw;
+		aspect-ratio: 1 / 1;
+	}
+}

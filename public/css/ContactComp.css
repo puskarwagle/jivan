@@ -8,19 +8,24 @@
 #ContactFormDiv{
 	display:flex;
 	justify-content:space-between;
-	height:100vh;
-	border:1px solid red;
-	padding:3rem 3rem 4rem 3rem;
+	max-width:100vw;
+	padding:5vw 5vw 5vw 5vw;
 }
 #VisibleRecovery{
-	display:grid;
+	display:inline-grid;
 	grid-template-columns: auto auto;
+	grid-column-gap:4vw;
 	grid-template-rows: auto auto auto;
 	height:60%;
 }
+#VisibleRecovery h1{
+	font-size:3vw;
+	padding-bottom:2vw;
+}
 .grid-item{
 	background-color: rgba(255, 255, 255, 0.8);
-  padding:0rem 1rem 0rem 1rem;
+  padding:1vw 1vw 1vw 1vw;
+  font-size:1.8vw;
 }
 .grid-item:nth-child(1){
 	grid-column: 1 / span 2;
@@ -29,25 +34,29 @@
 	display:flex;
 	flex-direction:column;
 }
-#ContactFormsHo h1{margin-left:1rem;}
+#ContactFormsHo h1{
+	padding:0vw 0vw 2vw 1vw;
+	font-size:3vw;
+}
 #ContactForm{
 	display:flex;
 	flex-direction:column;
-	padding:1rem 1rem 1rem 1rem;
+	padding:1vw 1vw 1vw 1vw;
 	width:40vw;
 }
 #ContactForm input[type="text"],
 #ContactForm input[type="tel"],
 #ContactForm input[type="email"],
 #ContactForm textarea {
-  background-color: #FFFFFF;
-  border: 1px solid rgb(174,174,174);
-  height: 2.5rem;
-  width: 100%;
-  cursor: pointer;
+	font-size:1.6vw;
+  background-color:#FFFFFF;
+  border:1px solid rgb(174,174,174);
+  height:2.5vw;
+  width:100%;
+  cursor:pointer;
   caret-color: #00ccff;
-  margin: auto auto 1rem 0rem;
-  padding:1rem 1rem 1rem 1rem;
+  margin:auto auto 2vw 0vw;
+  padding:1.5vw 1vw 1.5vw 1vw;
 }
 #ContactForm textarea{height:inherit}
 #ContactForm input:focus,
@@ -57,10 +66,29 @@
 }
 #ContactForm button{
   display:inline-block;
-  padding:1rem 1rem 1rem 1rem;
-  margin:2rem 1rem 1rem 1rem;
+  padding:1vw 1vw 1vw 1vw;
+  margin:2vw 1vw 1vw 0vw;
+  border:0.5px solid transparent;
+  font-size:1.4vw;
+  color:grey;
+  font-weight:600;
+  border-radius:10px;
 }
 #ContactForm button:hover{
-  color:#00ccff;
+  background-color:#00ccff;
+  color:white;
+  font-size:1.6vw;
   border:1px solid #00ccff;
+}
+@media only screen and (max-width: 765px) {
+	#VisibleRecovery h1{font-size:3.4vw;}
+	.grid-item{font-size:2.2vw;}
+	#ContactFormsHo h1{font-size:3.4vw;}
+	#ContactForm input[type="text"],
+	#ContactForm input[type="tel"],
+	#ContactForm input[type="email"],
+	#ContactForm textarea {font-size:2vw;}
+	#ContactForm button{font-size:2vw;white-space:nowrap}
+	
+	
 }

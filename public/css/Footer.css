@@ -2,7 +2,7 @@
 	background-color:#4f5b73;
 	display:flex;
 	color:rgb(169,184,195);
-	padding:5vw 5vw;
+	padding:5vw 5vw 5vw 5vw;
 }
 #Footer a{text-decoration:none;color:rgb(169,184,195);}
 #Footer a:hover{opacity:0.7;}
@@ -52,12 +52,13 @@
 	max-width:20vw;
 	display:flex;
 	flex-direction:column;
+	gap:2vw;
 	margin-left:auto;
-	outline:0px solid blue;
 }
 #FooterComp2 .FooterDivs2{
 	display:flex;
 	flex:2;
+	gap:2vw;
 	justify-content:center;
 	align-items:center;
 }
@@ -67,53 +68,27 @@
 	object-fit:contain;
 }
 #FooterComp2 .FooterDivs2 p:nth-child(1){font-weight:600;}
-#FooterComp2 #puskar{text-align:center;font-size:1.2vw;}
+#FooterComp2 #puskar{text-align:left;font-size:1.5vw;white-space:nowrap}
 #followGuu{display:none !important;}
 @media only screen and (max-width: 765px) {
-  #FooterComp {
-  	display:flex;
-  	flex-direction:column;
-  }
-	#follo {
-		display:none !important;
-	}
+  #FooterComp{display:flex;flex-direction:column;}
+	#follo{display:none !important;}
 	#followGuu{
 		display:inline-flex !important;
 		flex-direction:column;
 		margin-left:4vw;
 	}
-	#download{
-		display:flex;
-  	flex-direction:column;
-		margin-top:16vw;
-	}
-	#download img{
-		width:30%;
-		object-fit:contain;
-	}
-	.FooterDivs h2{
-		font-size:3.4vw;
-	}
-	.FooterDivs h3{
-		font-size:2.44vw;
-	}
-	.FooterDivs ol a{
-		font-size:3.2vw;
-	}
-	.FooterDivs li a{
-		font-size:2.24vw;
-	}
-	#FooterComp2 {
-		max-width:30vw;
-	}
+	#download{display:flex;flex-direction:column;margin-top:16vw;}
+	#download img{width:30%;object-fit:contain;}
+	.FooterDivs h2{font-size:3.4vw;}
+	.FooterDivs h3{font-size:2.44vw;}
+	.FooterDivs ol a{font-size:3.0vw;}
+	.FooterDivs li a{font-size:2.24vw;}
+	#FooterComp2 {max-width:30vw;}
 	#FooterComp2 .FooterDivs2{gap:2vw;}
 	#FooterComp2 .FooterDivs2 img{width:50%;}
-  #puskar {
-		margin-bottom:1.1vw;
-		margin-top:2vw;
-		font-size:2.65vw !important;
-	}
-	.kritika {
-		margin-top:2vw;
-	}
+	.puskar{margin-top:2vw;}
+  #puskar{margin:2vw 0vw 1.1vw 0vw;font-size:2.25vw !important;}
+  #puskar strong{text-decoration:underline;}
+	.kritika{margin-top:2vw;}
 }

@@ -61,7 +61,6 @@
 	flex-direction:row;
 	justify-content:space-between;
 	text-align:left;
-	border:0px solid red;
 }
 .Big-menu-tab nav ol{
 	padding:0.2vw 0vw 0.2vw 2vw;
@@ -76,7 +75,7 @@
 .Big-menu-tab nav ol a{
 	list-style-type:none;
 	font-weight:600;
-	font-size:1.2vw;
+	font-size:1.1vw;
 	color:white;
 }
 .Big-menu-tab nav ol:hover a{
@@ -84,17 +83,20 @@
 }
 .Big-menu-tab nav li{
 	list-style-type:none;
-	border-bottom:0.4px solid blue;
-	background-color:white;
-	padding:0.2vw 1vw 0.2vw 1vw;
+	display:inline-flex;
 }
 .Big-menu-tab nav li a{
 	list-style-type:none;
 	font-weight:600;
-	font-size:1vw;
+	font-size:1.1vw;
 	color:cornflowerblue;
+	background-color:white;
+	padding:1vw 3vw 1vw 1vw;
+	min-width:15vw;
+	white-space:nowrap;
+	border-bottom:0.4px solid cornflowerblue;
 }
-.Big-menu-tab nav li:hover{
+.Big-menu-tab nav li:hover a{
 	background-color:cornflowerblue;
 }
 .Big-menu-tab nav li:hover a{

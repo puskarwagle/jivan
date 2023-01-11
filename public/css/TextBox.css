@@ -1,14 +1,14 @@
 #TextBox{
 	display:flex;
-	gap:1rem;
-	padding:4rem 1rem 2rem 3rem;
+	gap:1vw;
+	padding:4vw 1vw 2vw 3vw;
 }
 #TextBox #Texts h1{
 	font-size:4vw;
 	margin-bottom:3.5vw;
 	color:#4f5b73;
 }
-#TextBox #Texts {padding:0rem 2rem 0rem 0rem;}
+#TextBox #Texts {padding:0vw 2vw 0vw 0vw;}
 #TextBox #Texts p:nth-child(2){
 	font-size:1.9vw;
 	font-weight:100;
@@ -20,7 +20,7 @@
 	font-size:2.5vw;
 	font-weight:100;
 	line-height:160%;
-	margin-bottom:1rem;
+	margin-bottom:1vw;
 	color:#4f5b73;
 }
 #TextBox #Texts p:nth-child(4){font-size:2.5vw;}
@@ -34,17 +34,17 @@
 	background-color:#FAF9F6;
 }
 #SanuBox h1{
-	padding:2rem 2.5rem 1rem 1rem;
+	padding:2vw 2.5vw 1vw 1vw;
 }
 #SanuBox div:nth-child(2){
 	width:80%;
 	height:0.5px;
 	background-color:#4f5b73;
-	margin:0rem 1rem 1rem 1rem;
+	margin:0vw 1vw 1vw 1vw;
 	opacity:0.5;
 }
 #SanuBox h3{
-	margin:1rem 1rem 1rem 1rem;
+	margin:1vw 1vw 1vw 1vw;
 	opacity:0.8;
 }
 #SanuBox h3:hover{

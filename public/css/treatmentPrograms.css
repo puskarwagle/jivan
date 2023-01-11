@@ -1,22 +1,22 @@
 #TextBox{
 	display:flex;
-	gap:1rem;
-	padding:2rem 1rem 0rem 3rem;
-	border:3px solid blue;
+	gap:2vw;
+	padding:4vw 6vw 4vw 6vw;
+	border:0px solid blue;
 }
 #TextBox .Texts{
 	display:flex;
 	flex-direction:column;
-	border:3px solid green;
+	border:0px solid green;
 }
 #TextBox .Texts h1{
-	font-size:3.9vw;
+	font-size:3.2vw;
 	color:#4f5b73;
 }
 #TextBox .Programs {
 	display:flex;
 	flex-direction:column;
-	margin:2rem 0rem 3rem 0rem;
+	margin:2vw 0vw 3vw 0vw;
 	border:1px solid red;
 }
 #TextBox .Programs img{
@@ -45,7 +45,7 @@
 #TextBox .Programs p:nth-child(5){
 	font-size:1.9vw;
 	line-height:160%;
-	margin-bottom:1rem;
+	margin-bottom:1vw;
 	font-style: italic;
 }
 #SanuBox{
@@ -57,18 +57,19 @@
 	background-color:#FAF9F6;
 }
 #SanuBox h1{
-	padding:2rem 2.5rem 1rem 1rem;
+	padding:2vw 2.5vw 1vw 1vw;
 }
 #SanuBox div:nth-child(2){
 	width:80%;
 	height:0.5px;
 	background-color:#4f5b73;
-	margin:0rem 1rem 1rem 1rem;
+	margin:0vw 1vw 1vw 1vw;
 	opacity:0.5;
 }
 #SanuBox h3{
-	margin:1rem 1rem 1rem 1rem;
+	margin:1vw 1vw 1vw 1vw;
 	opacity:0.8;
+	white-space:nowrap;
 }
 #SanuBox h3:hover{
 	opacity:1;
@@ -77,6 +78,6 @@
 	#TextBox{
 		display:flex;
 		flex-direction:column;
-		padding:2rem 3rem 0rem 3rem;
+		padding:2vw 3vw 0vw 3vw;
 	}
 }

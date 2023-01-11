@@ -1,11 +1,11 @@
 #FourthComp {
 	text-align:center;
-	padding:4vw 15vw 1vw 15vw;
+	padding:6vw 15vw 6vw 15vw;
 	color:#4f5b73;
 }
 #OurPrograms{
-	margin:0rem 2rem 3rem 2rem;
-	font-size:2.5vw;
+	margin:0vw 0vw 6vw 0vw;
+	font-size:3vw;
 }
 #FourthComponent {
 	display:grid;
@@ -45,7 +45,7 @@
 	background:rgb(126, 165, 238);
 	border:none;
 	border-radius:40px;
-	margin-top:1rem;
+	margin-top:4vw;
 	padding:0.8vw 0rem 0.8vw 0rem;
 	width:25%;
 }

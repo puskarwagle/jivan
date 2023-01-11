@@ -10,25 +10,26 @@
 	background-position:center;
 	background-repeat:no-repeat;
   padding:0rem 0rem 0rem 0rem;
-  border:2px solid blue;
+  border:0px solid blue;
 }
 #Menu{display:none;}
 #BigMenu{
 	display:flex;
 	align-items:center;
-	box-shadow:0px 3px 5px rgb(227, 222, 222);
+	box-shadow:0px 0px 3px rgb(227, 222, 222);
 	background-color:transparent;
 	padding:0vw 6vw 0vw 6vw;
-	border:6px solid purple;
+	border:0px solid purple;
 }
 .Big-menu-tab{
 	display:inline-flex;
+	gap:1vw;
 	flex-direction:column;
 	margin-left:auto;
-	border:3px solid green;
+	border:0px solid green;
 }
 #logo{
-	border:1px solid red;
+	border:0px solid red;
 	display:inline-flex;
 	gap:2vw;
 }
@@ -51,8 +52,7 @@
 .Big-ham-no{
 	display:inline-flex;
 	align-items:center;
-	padding:0rem 0rem 0vw 0rem;
-	border:2px solid blue;
+	border:0px solid blue;
 }
 .Big-ham-no span a{color:cornflowerblue;text-decoration:none;font-size:2vw;}
 .Big-ham-no span i{color:cornflowerblue;text-decoration:none;font-size:2vw;}
@@ -61,11 +61,10 @@
 	flex-direction:row;
 	justify-content:space-between;
 	text-align:left;
-	padding-right:1rem;
-	border:3px solid red;
+	border:0px solid red;
 }
 .Big-menu-tab nav ol{
-	padding:0.2vw 1vw 0.2vw 1vw;
+	padding:0.2vw 0vw 0.2vw 2vw;
 	position:relative;
 }
 .Big-menu-tab nav ol ul{

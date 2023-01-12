@@ -5,12 +5,10 @@
 	flex-direction:column;
 	justify-content:space-between;
 	text-align:center;
-	background-image:url("../images/bts.jpg");
+	background-image:url("../images/Starry_Night.jpg");
 	background-size:100% 100%;
 	background-position:center;
 	background-repeat:no-repeat;
-  padding:0rem 0rem 0rem 0rem;
-  border:0px solid blue;
 }
 #Menu{display:none;}
 #BigMenu{
@@ -19,17 +17,14 @@
 	box-shadow:0px 0px 3px rgb(227, 222, 222);
 	background-color:transparent;
 	padding:0vw 6vw 0vw 6vw;
-	border:0px solid purple;
 }
 .Big-menu-tab{
 	display:inline-flex;
 	gap:1vw;
 	flex-direction:column;
 	margin-left:auto;
-	border:0px solid green;
 }
 #logo{
-	border:0px solid red;
 	display:inline-flex;
 	gap:2vw;
 }
@@ -52,7 +47,6 @@
 .Big-ham-no{
 	display:inline-flex;
 	align-items:center;
-	border:0px solid blue;
 }
 .Big-ham-no span a{color:cornflowerblue;text-decoration:none;font-size:2vw;}
 .Big-ham-no span i{color:cornflowerblue;text-decoration:none;font-size:2vw;}
@@ -75,7 +69,7 @@
 .Big-menu-tab nav ol a{
 	list-style-type:none;
 	font-weight:600;
-	font-size:1.1vw;
+	font-size:1.3vw;
 	color:white;
 }
 .Big-menu-tab nav ol:hover a{
@@ -137,7 +131,7 @@
 input[type='checkbox']:checked + .switch:after{
 	transform:translateX(2vw);
   border:0px solid blue;
-  background-image:url("../images/nepali.png");
+  background-image:url("../images/nepal.png");
 	background-repeat:no-repeat;
 	background-position:center;
 	background-size:cover;

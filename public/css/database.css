@@ -50,6 +50,10 @@ form#clientForm{
 fieldset#infoFieldset input{
 	width:50%;
 }
+fieldset#maritialStatus{
+	display:flex;
+	flex-direction:column;
+}
 fieldset#substancesField{
 	display:flex;
 	flex-direction:column;

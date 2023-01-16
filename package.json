@@ -11,8 +11,11 @@
   "author": "PuskarWagle",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.20.1",
     "ejs": "^3.1.8",
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "fs": "^0.0.1-security",
+    "sqlite3": "^5.1.4"
   },
   "devDependencies": {
     "nodemon": "^2.0.20"

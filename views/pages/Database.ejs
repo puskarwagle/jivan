@@ -12,7 +12,7 @@
     </div>
     
     <div id="clientDetails">
-      <form id="clientForm">
+      <form id="clientForm" method="post" action="/submit-form">
       	<img id="backG" src="./images/image.png" alt="background image">
       	
       	<div id="clientImgDiv">
@@ -40,11 +40,6 @@
           <field class='text'>
           	<label for="age">Age:</label>
           	<input type="number" name="age" id="age"><br>
-          </field>
-          
-          <field class='text'>
-          	<label for="maritial">Maitial status:</label>
-          	<input type="text" name="maritial" id="maritial"><br>
           </field>
           
           <field class='text'>
@@ -93,51 +88,60 @@
           </field>
         </fieldset>
         
-        
+        <fieldset id="maritialStatus">
+          <h4>Maritial Status:</h4>   	
+          <label for="Single">Single</label>
+          <input type="radio" id="Single" name="maritial" value="Single">
+          <label for="Married">Married</label>
+          <input type="radio" id="Married" name="maritial" value="Married">
+          <label for="Divorced">Divorced</label>
+          <input type="radio" id="Divorced" name="maritial" value="Divorced">
+        </fieldset>
+          
         <fieldset id="substancesField">
         	<h4>Abused Substances:</h4>
           <label for="Alcohol">Alcohol</label>
-          <input type="checkbox" id="Alcohol" name="Substances" value="Alcohol">
+          <input type="checkbox" id="Alcohol" name="substances" value="Alcohol">
           <label for="Cannabis">Cannabis</label>
-          <input type="checkbox" id="Cannabis" name="Substances" value="Cannabis">
+          <input type="checkbox" id="Cannabis" name="substances" value="Cannabis">
           <label for="CoughSyrup">Cough Syrup</label>
-          <input type="checkbox" id="CoughSyrup" name="Substances" value="CoughSyrup">
+          <input type="checkbox" id="CoughSyrup" name="substances" value="CoughSyrup">
           <label for="Rakshi">Cigarette</label>
-          <input type="checkbox" id="Cigarette" name="Substances" value="Cigarette">
+          <input type="checkbox" id="Cigarette" name="substances" value="Cigarette">
           <label for="Women">Women & Porn</label>
-          <input type="checkbox" id="Women" name="Substances" value="Women">
+          <input type="checkbox" id="Women" name="substances" value="Women">
           <label for="Tablets">Tablets</label>
-          <input type="checkbox" id="Tablets" name="Substances" value="Tablets">
+          <input type="checkbox" id="Tablets" name="substances" value="Tablets">
           <label for="VideoGames">Video Games</label>
-          <input type="checkbox" id="VideoGames" name="Substances" value="Video Games">
+          <input type="checkbox" id="VideoGames" name="substances" value="Video Games">
           <label for="Behavioural">Behavioural</label>
-          <input type="checkbox" id="Behavioural" name="Substances" value="Behavioural">
+          <input type="checkbox" id="Behavioural" name="substances" value="Behavioural">
         </fieldset>
         
         
         <fieldset id="clientBought">
         	<h4>Type of admission:</h4>
           <label for="Surrender">Self/Surrender</label>
-          <input type="checkbox" id="Surrender" name="AdmittedBy" value="Surrender">
+          <input type="radio" id="Surrender" name="admittedBy" value="Surrender">
           <label for="Family">Forcefully by Family</label>
-          <input type="checkbox" id="Family" name="AdmittedBy" value="Family">
+          <input type="radio" id="Family" name="admittedBy" value="Family">
           <label for="Government">Government Authority</label>
-          <input type="checkbox" id="Government" name="AdmittedBy" value="Government">
+          <input type="radio" id="Government" name="admittedBy" value="Government">
           <label for="Other">Other</label>
-          <input type="checkbox" id="Other" name="AdmittedBy" value="Other">
+          <input type="radio" id="Other" name="admittedBy" value="Other">
         </fieldset>
         
         
         <fieldset id="clientHealth">
         	<h4>State of Health at enrollment:</h4>
           <label for="Good">Good</label>
-          <input type="checkbox" id="Good" name="Health" value="Good">
+          <input type="radio" id="Good" name="health" value="Good">
           <label for="Okay">Okay</label>
-          <input type="checkbox" id="Okay" name="Health" value="Okay">
+          <input type="radio" id="Okay" name="health" value="Okay">
           <label for="Weak">Weak</label>
-          <input type="checkbox" id="Weak" name="Health" value="Weak">
+          <input type="radio" id="Weak" name="health" value="Weak">
           <label for="VeryWeak">Very Weak</label>
-          <input type="checkbox" id="VeryWeak" name="Health" value="VeryWeak">
+          <input type="radio" id="VeryWeak" name="health" value="VeryWeak">
         </fieldset>
         
         <fieldset id="clientHealth2">
@@ -148,7 +152,7 @@
           
           <field class='text'>
           	<label for="Weight">Weight:</label>
-          	<input type="number" name="Weight" id="Weight"><br>
+          	<input type="number" name="weight" id="Weight"><br>
           </field>
           
           <field class='text'>
@@ -157,7 +161,7 @@
           </field>
         </fieldset>
         
-     		<button id="save" type="submit">Save</button>
+     		<button id="save" value="Submit" type="submit">Save</button>
     		<button id="cancel">Cancel</button>
       </form> <!--form -->
     </div>	<!-- id=clientDetails -->
@@ -165,6 +169,26 @@
     <div id="dataDiv">
     	<h1>The database</h1>
     	<pre></pre>
+    	
+			<form id="queryForm">
+    		<label for="queryType">Select query type:</label>
+    		<select id="queryType" name="queryType">
+        	<option value="select">SELECT</option>
+        	<option value="insert">INSERT</option>
+        	<option value="update">UPDATE</option>
+        	<option value="delete">DELETE</option>
+    		</select>
+
+    		<label for="tableName">Select table:</label>
+    		<select id="tableName" name="tableName">
+        	<option value="clients">clients</option>
+    		</select>
+
+    		<label for="query">Enter query:</label>
+    		<textarea id="query" name="query"></textarea>
+    		<button type="submit">Submit</button>
+			</form>
+
     </div>
     
   </div>		<!-- id=database -->

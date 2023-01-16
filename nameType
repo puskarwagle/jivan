@@ -1,0 +1,90 @@
+these are the technologies im using to create my web-based app and database: javascript, node.js, express.js, fs module, ejs template engine and sqlite3
+
+//these are the name and type of the form inputs that goes inside the database
+const formInputs = {
+    id: 'number',
+    name: 'text',
+    admission: 'date',
+    age: 'number',
+    education: 'text',
+    profession: 'text',
+    father: 'text',
+    mother: 'text',
+    spouse: 'text',
+    address: 'text',
+    contact1: 'number',
+    contact1: 'number',
+    years: 'number',
+    maritial: 'radio',
+    substances: 'checkbox',
+    admittedBy: 'radio',
+    health: 'radio',
+    diseases: 'text',
+    weight: 'number',
+    medication: 'text'
+};
+
+//below is my server-side code to insert the form (form id='cientForm', inside views/pages/database.ejs) data into the database:
+const express = require('express');
+const ejs = require('ejs');
+const PORT = process.env.PORT || 4000;
+const fs = require('fs');
+const app = express();
+const sqlite3 = require('sqlite3').verbose();
+const db = new sqlite3.Database('formdata.db');
+
+
+app.use(express.static('public'));
+app.set('view engine', 'ejs');
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+
+app.post('/submit-form', (req, res) => {
+    try {
+        // Access the form data
+        const formData = req.body;
+        let tableName = formData.name;
+        // Replace spaces with underscores
+        tableName = tableName.replace(/ /g, "_");
+        // Create a table using the input name
+        db.run(`CREATE TABLE ${tableName} (
+            id INTEGER,
+            name TEXT,
+            admission DATE,
+            age INTEGER,
+            education TEXT,
+            profession TEXT,
+            father TEXT,
+            mother TEXT,
+            spouse TEXT,
+            address TEXT,
+            contact1 INTEGER,
+            contact2 INTEGER,
+            years INTEGER,
+            maritial TEXT,
+            substances TEXT,
+            admittedBy TEXT,
+            health TEXT,
+            diseases TEXT,
+            weight INTEGER,
+            medication TEXT
+        )`);
+
+        // Insert form data into the table
+        db.run(`INSERT INTO clients (id, name, admission, age, education, profession, father, mother, spouse, address, contact1, contact2, years, maritial, substances, admittedBy, health, diseases, weight, medication) 
+                VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`, 
+                [formData.id, formData.name, formData.admission, formData.age, formData.education, formData.profession, formData.father, formData.mother, formData.spouse, formData.address, formData.contact1, formData.contact2, formData.years, formData.maritial, formData.substances, formData.admittedBy, formData.health, formData.diseases, formData.weight, formData.medication],
+                function(err) {
+                    if (err) {
+                        return console.log(err.message);
+                    }
+                    console.log(`A row has been inserted with rowid ${this.lastID}`);
+                });
+        res.json({ message: 'Form data saved to form-data.db' });
+    } catch (err) {
+        console.error(err);
+        return res.status(500).json({ error: "Error occured while inserting data" });
+    }
+}); 

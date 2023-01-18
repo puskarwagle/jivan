@@ -24,7 +24,7 @@
         	
         	<field>
           	<label for="uniqueId">Unique id:</label>
-          	<input type="number" name="id" id="uniqueId"><br>
+          	<input type="number" value="" name="id" id="uniqueId"><br>
           </field>
         	
         	<field>
@@ -211,7 +211,7 @@
     </div>	<!-- id=clientDetails -->
     
     <div id="dataDiv">
-    	<h1>The database</h1>   	
+    	<h1>Query Database</h1>   	
 			<form id="queryForm">
     		<label for="queryType">Select query type:</label>
     		<select id="queryType" name="queryType">
@@ -228,14 +228,13 @@
     		</select>
     		
     		<label for="query">Enter query:</label>
-    		<textarea id="query" name="query"></textarea>
+    		<textarea id="query" name="keyword"></textarea>
     		<button type="submit">Submit</button>
 			</form>
     </div>
     
     <div id="dataDivResults">
-    	<h1>The database</h1>
-    	<span></span>
+    	<h1>Query Results</h1>
     </div>
     
   </div>		<!-- id=database -->

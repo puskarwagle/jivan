@@ -20,7 +20,6 @@ app.post("/submit-form", async (req, res) => {
     const formData = req.body;
     let tableName = formData.name;
     tableName = tableName.replace(/ /g, "_");
-    // check if table already exists
     const tableNames = await new Promise((resolve, reject) => {
       db.all(
         'SELECT name FROM sqlite_master WHERE type="table"',
@@ -44,7 +43,6 @@ app.post("/submit-form", async (req, res) => {
         .json({ error: "A table with the same name already exists" });
     }
 
-    // create the table and insert the data
     await new Promise((resolve, reject) => {
       db.run(
         `CREATE TABLE ${tableName} (
@@ -80,9 +78,10 @@ app.post("/submit-form", async (req, res) => {
 
     await new Promise((resolve, reject) => {
       db.run(
-        `INSERT INTO ${tableName} (name, admission, age, education, profession, father, mother, spouse, address, contact1, contact2, years, maritial, substances, admittedBy, health, diseases, weight, medication) 
-            VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`,
+        `INSERT INTO ${tableName} (id, name, admission, age, education, profession, father, mother, spouse, address, contact1, contact2, years, maritial, substances, admittedBy, health, diseases, weight, medication) 
+            VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`,
         [
+        	formData.id,
           formData.name,
           formData.admission,
           formData.age,
@@ -111,13 +110,12 @@ app.post("/submit-form", async (req, res) => {
         }
       );
     });
-    // Append form data to form-data.json asynchronously
    await fs.promises.appendFile("./database/form-data.json", JSON.stringify(formData, null, 2) + "\n\n", "utf8")
 .then(() => {
 res.json({ message: 'Form data saved to ./database/form-data.json' });
 }).catch((err) => {
 console.error(err);
-next(err); //passing the error to errorHandler middleware
+next(err);
 });
 } catch (err) {
     console.error(err);
@@ -127,67 +125,7 @@ next(err); //passing the error to errorHandler middleware
   }
 });
 
-app.post('/run-query', (req, res) => {
-  // Get the query type and query from the form data
-  const queryType = req.body.queryType;
-  const query = req.body.query;
-
-  // Use a switch statement to handle the different query types
-  switch (queryType) {
-      case 'select':
-          // Run the SELECT query and return the results
-          db.all(query, (err, rows) => {
-              if (err) {
-                  return res.status(500).json({ error: err.message });
-              }
-              // Render the results page and pass the results to it
-              res.render('results', { results: rows });
-            });
-            break;
-        case 'insert':
-            // Run the INSERT query and return a message
-            db.run(query, (err) => {
-                if (err) {
-                    return res.status(500).json({ error: err.message });
-                }
-                res.json({ message: 'Data inserted successfully' });
-            });
-            break;
-        case 'update':
-            // Run the UPDATE query and return a message
-            db.run(query, (err) => {
-                if (err) {
-                    return res.status(500).json({ error: err.message });
-                }
-                res.json({ message: 'Data updated successfully' });
-            });
-            break;
-        case 'delete':
-            // Run the DELETE query and return a message
-            db.run(query, (err) => {
-                if (err) {
-                    return res.status(500).json({ error: err.message });
-                }
-                res.json({ message: 'Data deleted successfully' });
-            });
-            break;
-         case 'show':
-    			db.all(`SELECT name FROM sqlite_master WHERE type='table'`, (err, rows) => {
-       	 			if (err) {
-            		return res.status(500).json({ error: err.message });
-        			}
-        			// Render the results page and pass the results to it
-        			let tableNames = rows.map(row => row.name);
-        			res.render('results', { results: tableNames });
-    			});
-    			break;
-        default:
-            // Return an error message if the query type is not recognized
-            res.status(400).json({ error: 'Invalid query type' });
-}
-});
-
-// get the table names to the query form
+// get all the table names from the database table-namesPOST
 app.get('/table-names', (req, res) => {
   db.all(`SELECT name FROM sqlite_master WHERE type='table'`, (err, rows) => {
     if (err) {
@@ -198,26 +136,30 @@ app.get('/table-names', (req, res) => {
   });
 });
 
-//show the table data to the 
+//sending the tableName rows data to the dataDivResults queryPOST
 app.post('/query', (req, res) => {
-  // Get the query type and query from the form data
   const queryType = req.body.queryType;
   const tableName = req.body.tableName;
-
+  const keyword = req.body.keyword;
   switch (queryType) {
       case 'select':
-          // Get the data from the selected table
           db.all(`SELECT * FROM ${tableName}`, (err, rows) => {
               if (err) {
                   return res.status(500).json({ error: err.message });
               }
-              // Send the data to the client
               res.json({ data: rows });
             });
             break;
-        // Other query types such as insert, update, delete
+      case 'search':
+          db.all(`SELECT * FROM all_tables WHERE column_name LIKE '%${keyword}%'`, (err, rows) => {
+              if (err) {
+                  return res.status(500).json({ error: err.message });
+              }
+              // Render the results page and pass the results to it
+              res.json({ results: rows });
+            });
+            break;
         default:
-            // Return an error message if the query type is not recognized
             res.status(400).json({ error: 'Invalid query type' });
   }
 });

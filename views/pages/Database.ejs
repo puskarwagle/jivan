@@ -19,143 +19,187 @@
       		<img id="clientImg" src="./images/clients/clientDefault.png" alt="client image">
       	</div>
       	
-        <fieldset id="infoFieldset">
+        <fieldset>
         	<h3>Client Details</h3>
         	
-        	<field class='text'>
+        	<field>
           	<label for="uniqueId">Unique id:</label>
           	<input type="number" name="id" id="uniqueId"><br>
           </field>
         	
-        	<field class='text'>
+        	<field>
           	<label for="name">Name:</label>
           	<input type="text" name="name" id="name"><br>
           </field>
           
-        	<field class='text'>
+        	<field>
           	<label for="admission">Admission:</label>
           	<input type="date" name="admission" id="admission" ><br>
           </field>
           
-          <field class='text'>
+          <field>
           	<label for="age">Age:</label>
           	<input type="number" name="age" id="age"><br>
           </field>
           
-          <field class='text'>
+          <field>
           	<label for="education">Education qualification:</label>
           	<input type="text" name="education" id="education"><br>
           </field>
           
-          <field class='text'>
+          <field>
           	<label for="proffession">Profession:</label>
           	<input type="text" name="profession" id="profession"><br>
           </field>
           
-          <field class='text'>
+          <field>
           	<label for="father">Father's name:</label>
           	<input type="text" name="father" id="father"><br>
           </field>
           
-          <field class='text'>
+          <field>
           	<label for="mother">Mother's name:</label>
           	<input type="text" name="mother" id="mother"><br>
           </field>
           
-          <field class='text'>
+          <field>
           	<label for="spouse">Spouse's name:</label>
           	<input type="text" name="spouse" id="spouse"><br>
           </field>
           
-          <field class='text'>
+          <field>
           	<label for="address">Full Address:</label>
           	<input type="text" name="address" id="address"><br>
           </field>
           
-          <field class='text'>
+          <field>
           	<label for="contact1">Contact 1:</label>
           	<input type="number" name="contact1" id="contact1"><br>
           </field>
           
-          <field class='text'>
+          <field>
           	<label for="contact2">Contact 2:</label>
           	<input type="number" name="contact2" id="contact2"><br>
           </field>
           
-          <field class='text'>
+          <field>
           	<label for="years">No. of years addicted:</label>
           	<input type="number" name="years" id="years"><br>
           </field>
         </fieldset>
         
-        <fieldset id="maritialStatus">
-          <h4>Maritial Status:</h4>   	
-          <label for="Single">Single</label>
-          <input type="radio" id="Single" name="maritial" value="Single">
-          <label for="Married">Married</label>
-          <input type="radio" id="Married" name="maritial" value="Married">
-          <label for="Divorced">Divorced</label>
-          <input type="radio" id="Divorced" name="maritial" value="Divorced">
+        <fieldset>
+          <span>Maritial Status:</span>
+          <field>
+          	<label for="Single">Single</label>
+          	<input type="radio" id="Single" name="maritial" value="Single">          
+          </field>
+          <field>
+          	<label for="Married">Married</label>
+          	<input type="radio" id="Married" name="maritial" value="Married">
+          </field>
+          <field>
+          	<label for="Divorced">Divorced</label>
+          	<input type="radio" id="Divorced" name="maritial" value="Divorced">
+          </field>
         </fieldset>
           
-        <fieldset id="substancesField">
-        	<h4>Abused Substances:</h4>
-          <label for="Alcohol">Alcohol</label>
-          <input type="checkbox" id="Alcohol" name="substances" value="Alcohol">
-          <label for="Cannabis">Cannabis</label>
-          <input type="checkbox" id="Cannabis" name="substances" value="Cannabis">
-          <label for="CoughSyrup">Cough Syrup</label>
-          <input type="checkbox" id="CoughSyrup" name="substances" value="CoughSyrup">
-          <label for="Rakshi">Cigarette</label>
-          <input type="checkbox" id="Cigarette" name="substances" value="Cigarette">
-          <label for="Women">Women & Porn</label>
-          <input type="checkbox" id="Women" name="substances" value="Women">
-          <label for="Tablets">Tablets</label>
-          <input type="checkbox" id="Tablets" name="substances" value="Tablets">
-          <label for="VideoGames">Video Games</label>
-          <input type="checkbox" id="VideoGames" name="substances" value="Video Games">
-          <label for="Behavioural">Behavioural</label>
-          <input type="checkbox" id="Behavioural" name="substances" value="Behavioural">
+        <fieldset>
+        	<span>Abused Substances:</span>
+        	<field>
+          	<label for="Alcohol">Alcohol</label>
+          	<input type="checkbox" id="Alcohol" name="substances" value="Alcohol">
+          </field>
+          <field>
+          	<label for="Cannabis">Cannabis</label>
+          	<input type="checkbox" id="Cannabis" name="substances" value="Cannabis">
+          </field>
+          <field>
+          	<label for="CoughSyrup">Cough Syrup</label>
+          	<input type="checkbox" id="CoughSyrup" name="substances" value="CoughSyrup">
+          </field>
+          <field>
+          	<label for="Rakshi">Cigarette</label>
+          	<input type="checkbox" id="Cigarette" name="substances" value="Cigarette">
+          </field>
+          <field>
+          	<label for="Women">Women & Porn</label>
+          	<input type="checkbox" id="Women" name="substances" value="Women">
+          </field>
+          <field>
+          	<label for="Tablets">Tablets</label>
+          	<input type="checkbox" id="Tablets" name="substances" value="Tablets">
+          </field>
+          <field>
+          	<label for="VideoGames">Video Games</label>
+          	<input type="checkbox" id="VideoGames" name="substances" value="Video Games">
+          </field>
+          <field>
+          	<label for="Behavioural">Behavioural</label>
+          	<input type="checkbox" id="Behavioural" name="substances" value="Behavioural">
+          </field>
         </fieldset>
         
         
-        <fieldset id="clientBought">
-        	<h4>Type of admission:</h4>
-          <label for="Surrender">Self/Surrender</label>
-          <input type="radio" id="Surrender" name="admittedBy" value="Surrender">
-          <label for="Family">Forcefully by Family</label>
-          <input type="radio" id="Family" name="admittedBy" value="Family">
-          <label for="Government">Government Authority</label>
-          <input type="radio" id="Government" name="admittedBy" value="Government">
-          <label for="Other">Other</label>
-          <input type="radio" id="Other" name="admittedBy" value="Other">
+        <fieldset>
+        	<span>Type of admission:</span>
+        	<field>
+          	<label for="Surrender">Self/Surrender</label>
+          	<input type="radio" id="Surrender" name="admittedBy" value="Surrender">
+          </field>
+          
+          <field>
+          	<label for="Family">Forcefully by Family</label>
+          	<input type="radio" id="Family" name="admittedBy" value="Family">
+          </field>
+          
+          <field>
+          	<label for="Government">Government Authority</label>
+          	<input type="radio" id="Government" name="admittedBy" value="Government">
+          </field>
+          
+          <field>
+          	<label for="Other">Other</label>
+          	<input type="radio" id="Other" name="admittedBy" value="Other">
+          </field>
         </fieldset>
         
         
-        <fieldset id="clientHealth">
-        	<h4>State of Health at enrollment:</h4>
-          <label for="Good">Good</label>
-          <input type="radio" id="Good" name="health" value="Good">
-          <label for="Okay">Okay</label>
-          <input type="radio" id="Okay" name="health" value="Okay">
-          <label for="Weak">Weak</label>
-          <input type="radio" id="Weak" name="health" value="Weak">
-          <label for="VeryWeak">Very Weak</label>
-          <input type="radio" id="VeryWeak" name="health" value="VeryWeak">
+        <fieldset>
+        	<span>State of Health at enrollment:</span>
+        	<field>
+          	<label for="Good">Good</label>
+          	<input type="radio" id="Good" name="health" value="Good">
+          </field>
+          
+          <field>
+          	<label for="Okay">Okay</label>
+          	<input type="radio" id="Okay" name="health" value="Okay">
+          </field>
+          
+          <field>
+          	<label for="Weak">Weak</label>
+          	<input type="radio" id="Weak" name="health" value="Weak">
+          </field>
+          
+          <field>
+          	<label for="VeryWeak">Very Weak</label>
+          	<input type="radio" id="VeryWeak" name="health" value="VeryWeak">
+          </field>
         </fieldset>
         
-        <fieldset id="clientHealth2">
-        	<field class='text'>
+        <fieldset>
+        	<field>
           	<label for="diseases">Diseases or any pre-conditons if any:</label>
           	<input type="text" name="diseases" id="diseases"><br>
           </field>
           
-          <field class='text'>
+          <field>
           	<label for="Weight">Weight:</label>
           	<input type="number" name="weight" id="Weight"><br>
           </field>
           
-          <field class='text'>
+          <field>
           	<label for="medication">If needs any medication:</label>
           	<input type="text" name="medication" id="medication"><br>
           </field>
@@ -167,9 +211,7 @@
     </div>	<!-- id=clientDetails -->
     
     <div id="dataDiv">
-    	<h1>The database</h1>
-    	<pre></pre>
-    	
+    	<h1>The database</h1>   	
 			<form id="queryForm">
     		<label for="queryType">Select query type:</label>
     		<select id="queryType" name="queryType">
@@ -177,21 +219,26 @@
         	<option value="insert">INSERT</option>
         	<option value="update">UPDATE</option>
         	<option value="delete">DELETE</option>
+        	<option value="show">SHOW TABLES</option>
     		</select>
-
+    		
     		<label for="tableName">Select table:</label>
     		<select id="tableName" name="tableName">
-        	<option value="clients">clients</option>
+        	<option value=""></option>
     		</select>
-
+    		
     		<label for="query">Enter query:</label>
     		<textarea id="query" name="query"></textarea>
     		<button type="submit">Submit</button>
 			</form>
-
+    </div>
+    
+    <div id="dataDivResults">
+    	<h1>The database</h1>
+    	<span></span>
     </div>
     
   </div>		<!-- id=database -->
-  <script type="module" src="../js/database.js"></script>
+  <script src="../js/database.js"></script>
 </body>
 

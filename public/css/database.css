@@ -1,98 +1,176 @@
-#database{
-	text-align:center;
-}
-#clientDetails{
-	text-align:left;
-}
-#database #dataLogo{
-	width:8rem;
-	position:absolute;
-	left:2rem;
-	top:0.5rem;
-}
-form#clientForm{
-	border:2px solid;
-	border-radius:10px;
-	position:relative;
-}
-#clientImgDiv{
-	position:absolute;
+#database {
 	display:flex;
-	flex-direction:column;
-	right:4rem;
-	top:1rem;
-	border:3px solid red;
+  flex-direction:column;
+  align-items:center;
 }
-#clientImg{
-	width:8rem;
+#clientDetails {
+  text-align:left;
+  width:90%;
+}
+#database #dataLogo {
+  width:8rem;
+  position:absolute;
+  left:2rem;
+  top:0.5rem;
+}
+form#clientForm {
+	border:2px groove skyblue; 
+	padding:0.2vw 0 0 0;
+  border-radius:10px;
+  position:relative;
+  box-shadow:0px 0px 1vw #ccc;
+}
+#clientImgDiv {
+  position:absolute;
+  display:flex;
+  flex-direction:column;
+  right:4rem;
+  top:1rem;
+  border:3px solid red;
+}
+#clientImg {
+  width:8rem;
 }
 #clientForm #backG {
-	position:absolute;
-	width:100%;
-	height:100%;
-	z-index:-4;
-	filter:opacity(4%);
+  position:absolute;
+  width:100%;
+  height:100%;
+  z-index:-4;
+  filter:opacity(4%);
 }
-#clientForm input{
-	margin-bottom:1rem;
+h3{
+	font-size:2vw;
 }
-#clientForm label{
-	border:0px solid red;
-	width:20%;
+#clientForm input {
+  margin-bottom:1rem;
+  border-style: outset;
+  border-radius:5px;
 }
-#clientForm field.text{
-	display:flex;
+#clientForm label {
+  display:inline-block;
 }
-#clientForm fieldset{
-	text-align:left;
-	border:0px solid blue;
+#clientForm field {
+  display:flex;
 }
-fieldset#infoFieldset input{
-	width:50%;
+#clientForm fieldset {
+  text-align:left;
+  border:2px groove #ccc;
+  border-radius:10px;
+  display:flex;
+  flex-direction:column;
+  box-shadow:0px 0px 1vw #ccc;
+  margin:0 0.2vw 2vw 0.2vw;
 }
-fieldset#maritialStatus{
-	display:flex;
-	flex-direction:column;
+fieldset label {
+  width:35%;
+  display:inline-block;
 }
-fieldset#substancesField{
-	display:flex;
-	flex-direction:column;
+fieldset span {
+  font-size:2vw;
+  margin-bottom:2vw;
 }
-fieldset#clientBought{
-	display:flex;
-	flex-direction:column;
+#clientDetails button{margin-left:2vw;box-shadow:0px 5px 1vw #ccc;}
+#save {
+  background-color:#4CAF50;
+  /* Green */
+  border:none;
+  color:white;
+  padding:1.5vh 2vw;
+  text-align:center;
+  text-decoration:none;
+  display:inline-block;
+  font-size:1.6vw;
+  margin:2vh 0;
+  cursor:pointer;
+  border-radius:4px;
 }
-fieldset#clientHealth{
-	display:flex;
-	flex-direction:column;
+#cancel {
+  background-color:#f44336;
+  /* Red */
+  border:none;
+  color:white;
+  padding:1.5vh 2vw;
+  text-align:center;
+  text-decoration:none;
+  display:inline-block;
+  font-size:1.6vw;
+  margin:2vh 0;
+  cursor:pointer;
+  border-radius:4px;
 }
-fieldset#clientHealth2 label{
-	width:35%;
+#save:hover,
+#cancel:hover {
+  opacity:0.8;
 }
-fieldset#clientHealth2 input{
-	width:50%;
+#save:active,
+#cancel:active {
+  background-color:#3e8e41;
 }
-#database button{
-	font-size:2rem;
-	margin:2rem 2rem;
-	color:white;
-	border:none;
-	border-radius:10px;
+#cancel:active {
+  background-color:#e70000;
 }
-#database button#save{
-	background:#1fd655;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#dataDiv {
+  width:60vw;
+  margin:0 auto;
+  padding:2vw;
+  background-color:#f2f2f2;
+  border-radius:1vw;
+  box-shadow:0px 0px 1vw #ccc;
 }
-#database button#save:hover{
-	background:#008631;
+#dataDiv h1 {
+  text-align: center;
+  font-size: 2vw;
+  margin: 1vh 0;
 }
-#database button#cancel{
-	background:#ed3419;
+#queryForm {
+  margin: 2vh auto;
+  width: 90%;
 }
-#database button#cancel:hover{
-	background:#c61a09;
+#queryForm label {
+  font-size: 1.5vw;
+  margin-bottom: 1vh;
 }
-#dataDiv{
-	border:3px solid pink;
-	height:100vh;
-	text-align:left;
+#queryForm select,
+#queryForm textarea {
+  width: 100%;
+  padding: 1vw;
+  margin-bottom: 1vh;
+  border-radius: 1vw;
+  font-size: 1.5vw;
+  box-sizing: border-box;
+  border: 0.5vw solid #ccc;
+}
+#queryForm select:focus,
+#queryForm textarea:focus {
+  border: 0.5vw solid #555;
+}
+#queryForm button[type="submit"] {
+  width:100%;
+  padding:1vh;
+  margin-top:1vh;
+  background-color:#4CAF50;
+  color:white;
+  border-radius:1vw;
+  border:none;
+  cursor:pointer;
+  font-size:1.6vw;
+  width:20%;
+}
+#queryForm button[type="submit"]:hover {
+  background-color:#45a049;
 }

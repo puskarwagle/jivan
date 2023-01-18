@@ -1,33 +1,51 @@
-document.querySelector('#queryForm').addEventListener('submit', (e) => {
+document.querySelector("#queryForm").addEventListener("submit", (e) => {
     e.preventDefault();
-
     // Get the form data
     const formData = new FormData(e.target);
-    const queryType = formData.get('queryType');
-    const tableName = formData.get('tableName');
-    const query = formData.get('query');
-
+    const queryType = formData.get("queryType");
+    const tableName = formData.get("tableName");
+    const query = formData.get("query");
     // Prepare the query based on the query type
-    let url = '/query';
+    let url = "/query";
     let options = {
-        method: 'POST',
+        method: "POST",
         headers: {
-            'Content-Type': 'application/json'
+            "Content-Type": "application/json",
         },
-        body: JSON.stringify({ queryType, tableName, query })
+        body: JSON.stringify({ queryType, tableName, query }),
     };
-
     // Execute the query
     fetch(url, options)
-        .then(response => response.json())
-        .then(data => {
+        .then((response) => response.json())
+        .then((data) => {
             // Handle the response here
-            console.log(data);
+            const dataDiv = document.querySelector("#dataDivResults span");
+            dataDiv.innerHTML = JSON.stringify(data);
         })
-        .catch(error => {
+        .catch((error) => {
             console.error(error);
         });
 });
+
+
+
+window.onload = function() {
+  fetch('/table-names')
+    .then(response => response.json())
+    .then(tableNames => {
+      // Update the form with the table names
+      const select = document.querySelector('#tableName');
+      tableNames.forEach(tableName => {
+        const option = document.createElement('option');
+        option.value = tableName;
+        option.text = tableName;
+        select.appendChild(option);
+      });
+    })
+    .catch(error => {
+      console.error(error);
+    });
+}
 
 console.log("hi");
 
@@ -41,12 +59,3 @@ function uploadImg(){
 	let clientName = document.querySelector('#name');
 	clientImg.src = './images/clients/' + clientName.value;
 }
-
-
-
-
-//	fs.appendFile('clientForm1.json', myJSON, function (err) {
-//  		if (err) throw err;
-//  		console.log('Saved!');
-//		});
-//	}

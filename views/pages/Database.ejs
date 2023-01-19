@@ -20,7 +20,7 @@
       	</div>
       	
         <fieldset>
-        	<h3>Client Details</h3>
+        	<h3>Client Form</h3>
         	
         	<field>
           	<label for="uniqueId">Unique id:</label>
@@ -35,11 +35,6 @@
         	<field>
           	<label for="admission">Admission:</label>
           	<input type="date" name="admission" id="admission" ><br>
-          </field>
-          
-          <field>
-          	<label for="age">Age:</label>
-          	<input type="number" name="age" id="age"><br>
           </field>
           
           <field>
@@ -85,6 +80,11 @@
           <field>
           	<label for="years">No. of years addicted:</label>
           	<input type="number" name="years" id="years"><br>
+          </field>
+          
+          <field>
+          	<label for="dob">Date of Birth:</label>
+          	<input type="date" name="dob" id="dob" ><br>
           </field>
         </fieldset>
         
@@ -210,31 +210,32 @@
       </form> <!--form -->
     </div>	<!-- id=clientDetails -->
     
+    <div id="dataAllTables">
+    	<h1>Clients Details</h1>
+    	
+    	
+    </div>
+    
     <div id="dataDiv">
     	<h1>Query Database</h1>   	
 			<form id="queryForm">
-    		<label for="queryType">Select query type:</label>
-    		<select id="queryType" name="queryType">
-        	<option value="select">SELECT</option>
-        	<option value="insert">INSERT</option>
-        	<option value="update">UPDATE</option>
-        	<option value="delete">DELETE</option>
-        	<option value="show">SHOW TABLES</option>
-    		</select>
-    		
-    		<label for="tableName">Select table:</label>
-    		<select id="tableName" name="tableName">
-        	<option value=""></option>
-    		</select>
-    		
-    		<label for="query">Enter query:</label>
-    		<textarea id="query" name="keyword"></textarea>
-    		<button type="submit">Submit</button>
+				<label for="tableName">Select table:</label>
+				<select id="tableName" name="tableName">
+    			<option value=""></option>
+				</select>
+		
+				<label for="query">Enter query:</label>
+				<textarea id="query" name="keyword"></textarea>
+				<button type="submit">Submit</button>
 			</form>
     </div>
     
+    <div id="dataSearchResults">
+    	<h1>Show search results.</h1>
+    </div>
+    
     <div id="dataDivResults">
-    	<h1>Query Results</h1>
+    	<h1>Show show selected table content.</h1>
     </div>
     
   </div>		<!-- id=database -->

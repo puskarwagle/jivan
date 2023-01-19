@@ -14,44 +14,16 @@ app.use(errorHandler());
 
 app.post("/submit-form", async (req, res) => {
   try {
-    // Get the form data
     const formData = req.body;
     let tableName = formData.name;
     tableName = tableName.replace(/ /g, "_");
-    // Get the current date
     const currentDate = new Date();
-    // Get the date of birth from the form data
     const dob = new Date(formData.dob);
-    // Calculate the age of the client
     const age = currentDate.getFullYear() - dob.getFullYear();
-    const clientImageDefault = `public/images/clients/${tableName}.jpg`;
-    // Create the table with the added "clientImage" and "age" columns
+    const clientImageDefault = `.//images/clients/${tableName}`;
     await new Promise((resolve, reject) => {
       db.run(
-        `CREATE TABLE ${tableName} (
-            id INTEGER,
-            name TEXT,
-            dob DATE,
-            age INTEGER,
-            education TEXT,
-            profession TEXT,
-            father TEXT,
-            mother TEXT,
-            spouse TEXT,
-            address TEXT,
-            contact1 INTEGER,
-            contact2 INTEGER,
-            years INTEGER,
-            maritial TEXT,
-            substances TEXT,
-            admittedBy TEXT,
-            health TEXT,
-            diseases TEXT,
-            weight INTEGER,
-            medication TEXT,
-            clientImage TEXT DEFAULT ${clientImageDefault}
-
-        )`,
+        `CREATE TABLE ${tableName} ( id INTEGER, name TEXT, dob DATE, age INTEGER, education TEXT, profession TEXT, father TEXT, mother TEXT, spouse TEXT, address TEXT, contact1 INTEGER, contact2 INTEGER, years INTEGER, maritial TEXT, substances TEXT, admittedBy TEXT, health TEXT, diseases TEXT, weight INTEGER, medication TEXT, clientImageDefault TEXT )`,
         (err) => {
           if (err) {
             reject(err);
@@ -60,52 +32,32 @@ app.post("/submit-form", async (req, res) => {
         }
       );
     });
-
     // Insert the data into the table with the calculated age
     await new Promise((resolve, reject) => {
       db.run(
-        `INSERT INTO ${tableName} (id, name, dob, age, education, profession, father, mother, spouse, address, contact1, contact2, years, maritial, substances, admittedBy, health, diseases, weight, medication, clientImage) 
-            VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`,
-        [
-          formData.id,
-          formData.name,
-          formData.dob,
-          age,
-          formData.education,
-          formData.profession,
-formData.father,
-formData.mother,
-formData.spouse,
-formData.address,
-formData.contact1,
-formData.contact2,
-formData.years,
-formData.maritial,
-formData.substances,
-formData.admittedBy,
-formData.health,
-formData.diseases,
-formData.weight,
-formData.medication,
-clientImage
-],
-function (err) {
-if (err) {
-reject(err);
-}
-resolve();
-}
-);
+        `INSERT INTO ${tableName} (id, name, dob, age, education, profession, father, mother, spouse, address, contact1, contact2, years, maritial, substances, admittedBy, health, diseases, weight, medication, clientImageDefault) 
+        VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`,
+        [formData.id, formData.name, formData.dob, age, formData.education, formData.profession, formData.father, formData.mother, formData.spouse, formData.address, formData.contact1, formData.contact2, formData.years, formData.maritial, formData.substances, formData.admittedBy, formData.health, formData.diseases, formData.weight, formData.medication, clientImageDefault],
+        function(err) {
+          if (err) {
+            reject(err);
+          }
+          resolve();
+        }
+      );
+    });
+    res.json({
+      message: "Form data inserted successfully"
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({
+      error: "Error occured while inserting data"
+    });
+  } finally {
+    db.close();
+  }
 });
-res.json({ message: "Form data inserted successfully" });
-} catch (err) {
-console.error(err);
-res.status(500).json({ error: "Error occured while inserting data" });
-} finally {
-db.close();
-}
-});
-
 
 
 

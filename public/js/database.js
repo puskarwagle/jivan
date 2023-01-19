@@ -14,7 +14,8 @@ window.onload = function showtablenames() {
           .then(response => response.json())
           .then(data => {
             data.data.forEach(row => {
-            	JSON.stringify(row);
+            	//const rowString = JSON.stringify(row);
+            	console.log(row);
             	const rowAdmission = document.createElement('span');
               rowAdmission.textContent = row.admission;
               clientS.appendChild(rowAdmission);
@@ -26,9 +27,15 @@ window.onload = function showtablenames() {
             	const rowSubstances = document.createElement('span');
               rowSubstances.textContent = row.substances;
               clientS.appendChild(rowSubstances);
+              
+              console.log(row.clientImageDefault)
+              const rowClientImage = document.createElement('img');
+              rowClientImage.src = row.clientImageDefault + '.jpg';
+              rowClientImage.alt = row.name;
+              clientS.appendChild(rowClientImage);
             });
+           	divB.appendChild(clientS);
           });
-        divB.appendChild(clientS);
       });
     })
     .catch(error => {

@@ -1,0 +1,247 @@
+{
+  "id": "1673861819486",
+  "name": "",
+  "admission": "",
+  "age": "",
+  "maritial": "",
+  "education": "",
+  "profession": "",
+  "father": "",
+  "mother": "",
+  "spouse": "",
+  "address": "",
+  "contact1": "",
+  "contact2": "",
+  "years": "",
+  "diseases": "",
+  "Weight": "",
+  "medication": "ewrwr"
+}
+
+{
+  "id": "1673865876172",
+  "name": "",
+  "admission": "",
+  "age": "",
+  "maritial": "",
+  "education": "",
+  "profession": "",
+  "father": "",
+  "mother": "",
+  "spouse": "",
+  "address": "",
+  "contact1": "",
+  "contact2": "",
+  "years": "",
+  "diseases": "",
+  "Weight": "",
+  "medication": ""
+}
+
+{
+  "id": "1673867522188",
+  "name": "",
+  "admission": "",
+  "age": "",
+  "education": "",
+  "profession": "",
+  "father": "",
+  "mother": "",
+  "spouse": "",
+  "address": "",
+  "contact1": "",
+  "contact2": "",
+  "years": "",
+  "Maritial": "Divorced",
+  "diseases": "",
+  "Weight": "",
+  "medication": ""
+}
+
+{
+  "id": "1673935013375",
+  "name": "Puskar wagle",
+  "admission": "",
+  "age": "1",
+  "education": "none",
+  "profession": "it",
+  "father": "baba",
+  "mother": "mama",
+  "spouse": "guu",
+  "address": "earth",
+  "contact1": "9",
+  "contact2": "6",
+  "years": "66",
+  "maritial": "Single",
+  "substances": [
+    "Cannabis",
+    "Cigarette",
+    "Women"
+  ],
+  "admittedBy": "Surrender",
+  "health": "Weak",
+  "diseases": "none",
+  "weight": "-1",
+  "medication": "dsafsaf"
+}
+
+{
+  "id": "1673935141372",
+  "name": "guiye",
+  "admission": "",
+  "age": "",
+  "education": "",
+  "profession": "",
+  "father": "",
+  "mother": "",
+  "spouse": "",
+  "address": "",
+  "contact1": "",
+  "contact2": "",
+  "years": "",
+  "diseases": "",
+  "weight": "",
+  "medication": "ewrwr"
+}
+
+{
+  "id": "1673942685312",
+  "name": "Admin",
+  "admission": "",
+  "age": "",
+  "education": "",
+  "profession": "",
+  "father": "",
+  "mother": "",
+  "spouse": "",
+  "address": "",
+  "contact1": "",
+  "contact2": "",
+  "years": "",
+  "admittedBy": "Government",
+  "diseases": "",
+  "weight": "",
+  "medication": ""
+}
+
+{
+  "id": "1674018278058",
+  "name": "bhaskar",
+  "admission": "",
+  "age": "",
+  "education": "",
+  "profession": "",
+  "father": "",
+  "mother": "",
+  "spouse": "",
+  "address": "",
+  "contact1": "",
+  "contact2": "",
+  "years": "",
+  "health": "Good",
+  "diseases": "",
+  "weight": "",
+  "medication": ""
+}
+
+{
+  "id": "1674030490883",
+  "name": "baba",
+  "admission": "",
+  "age": "55",
+  "education": "bachelors",
+  "profession": "family",
+  "father": "hajurga",
+  "mother": "aama",
+  "spouse": "wifey",
+  "address": "harion",
+  "contact1": "99",
+  "contact2": "77",
+  "years": "55",
+  "maritial": "Married",
+  "substances": [
+    "Women",
+    "Behavioural"
+  ],
+  "admittedBy": "Family",
+  "health": "Good",
+  "diseases": "dfasf",
+  "weight": "80",
+  "medication": "ewrwr"
+}
+
+{
+  "id": "1674032101029",
+  "name": "rrr4",
+  "admission": "",
+  "age": "",
+  "education": "",
+  "profession": "",
+  "father": "",
+  "mother": "",
+  "spouse": "",
+  "address": "",
+  "contact1": "",
+  "contact2": "",
+  "years": "",
+  "substances": [
+    "Cannabis",
+    "CoughSyrup"
+  ],
+  "diseases": "",
+  "weight": "",
+  "medication": "dsafsaf"
+}
+
+{
+  "id": "1674037205248",
+  "name": "nirajan",
+  "admission": "2019-07-16",
+  "age": "30",
+  "education": "dontknow",
+  "profession": "tech",
+  "father": "mama",
+  "mother": "maiju",
+  "spouse": "archana",
+  "address": "nijgadh",
+  "contact1": "9876",
+  "contact2": "9866",
+  "years": "30",
+  "maritial": "Married",
+  "substances": "Video Games",
+  "admittedBy": "Surrender",
+  "health": "Good",
+  "diseases": "none",
+  "weight": "222",
+  "medication": "fsafsdf"
+}
+
+{
+  "id": "1674039728085",
+  "name": "pramod sah",
+  "admission": "2023-01-11",
+  "age": "50",
+  "education": "drug addiction",
+  "profession": "rehab",
+  "father": "dad",
+  "mother": "mom",
+  "spouse": "wife",
+  "address": "birgunj",
+  "contact1": "5555",
+  "contact2": "5555",
+  "years": "12",
+  "maritial": "Married",
+  "substances": [
+    "Alcohol",
+    "Cannabis",
+    "Cigarette",
+    "Tablets",
+    "Behavioural"
+  ],
+  "admittedBy": "Government",
+  "health": "Okay",
+  "diseases": "dfasf",
+  "weight": "60",
+  "medication": "fsafsdf"
+}
+

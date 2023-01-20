@@ -14,27 +14,34 @@ window.onload = function showtablenames() {
           .then(response => response.json())
           .then(data => {
             data.data.forEach(row => {
-            	//const rowString = JSON.stringify(row);
-            	console.log(row);
-            	const rowAdmission = document.createElement('span');
-              rowAdmission.textContent = row.admission;
-              clientS.appendChild(rowAdmission);
-              
-            	const rowFather = document.createElement('span');
-              rowFather.textContent = row.father;
-              clientS.appendChild(rowFather);
-              
-            	const rowSubstances = document.createElement('span');
-              rowSubstances.textContent = row.substances;
-              clientS.appendChild(rowSubstances);
-              
-              console.log(row.clientImageDefault)
-              const rowClientImage = document.createElement('img');
-              rowClientImage.src = row.clientImageDefault + '.jpg';
-              rowClientImage.alt = row.name;
-              clientS.appendChild(rowClientImage);
+            	const propertiesToDisplay = ["name", "dob", "age", "education", "profession"];
+							Object.entries(row)
+    					.filter(([property, value]) => propertiesToDisplay.includes(property))
+    					.forEach(([property, value]) => {
+    					const rowProperty = document.createElement('span');
+    					rowProperty.textContent = `${value}`;
+    					clientS.appendChild(rowProperty);
+						 });
+            data.data.forEach(row => {
+            	const propertiesToDisplay = ["name", "dob", "age", "education", "profession", "father", "mother", "spouse", "address", "contact1", "contact2", "years", "maritial", "substances", "admittedBy", "health", "diseases", "weight", "medication", "clientImageDefault"];
+							const editForm = document.createElement('form');
+							Object.entries(row)
+    					.filter(([property, value]) => propertiesToDisplay.includes(property))
+    					.forEach(([property, value]) => {
+    							const editField = document.createElement('field');
+    							const editLabel = document.createElement('label');
+    							editLabel.htmlFor = `${property}`;
+    							const editInput = document.createElement('input');
+    							editInput.type = 'text';
+    							editInput.name = `${property}`;
+    							editInput.value = `${value}`;
+    						editForm.appendChild(editLabel);
+    						editForm.appendChild(editInput);
+						 });
+					clientS.appendChild(editForm);
+						 });
+					divB.appendChild(clientS);
             });
-           	divB.appendChild(clientS);
           });
       });
     })
@@ -42,7 +49,6 @@ window.onload = function showtablenames() {
       console.error(error);
     });
 };
-
 
 
 

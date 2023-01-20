@@ -147,7 +147,10 @@ fieldset span {
   height:8vw;
   margin-left:auto;
 }
-
+#dataAllTables .clientS form {
+  display:flex;
+  flex-direction:column;
+}
 
 
 

@@ -1,3 +1,4 @@
+/* Database input form */
 #database {
 	display:flex;
   flex-direction:column;
@@ -72,7 +73,6 @@ fieldset span {
 #clientDetails button{margin-left:2vw;box-shadow:0px 5px 1vw #ccc;}
 #save {
   background-color:#4CAF50;
-  /* Green */
   border:none;
   color:white;
   padding:1.5vh 2vw;
@@ -86,7 +86,6 @@ fieldset span {
 }
 #cancel {
   background-color:#f44336;
-  /* Red */
   border:none;
   color:white;
   padding:1.5vh 2vw;
@@ -117,7 +116,7 @@ fieldset span {
 
 
 
-/* query form */
+/* all the database data */
 #dataAllTables {
   width:95vw;
   margin:2vw 2vw;
@@ -127,9 +126,9 @@ fieldset span {
   box-shadow:0px 0px 1vw #ccc;
 }
 #dataAllTables h1 {
-  text-align: center;
-  font-size: 2vw;
-  margin: 1vh 0;
+  text-align:center;
+  font-size:2vw;
+  margin:1vh 0;
 }
 #dataAllTables .clientS {
   border:2px groove blue;
@@ -155,119 +154,35 @@ fieldset span {
 #dataAllTables .clientS form {
   width:60vw;
   margin:2vw 2vw;
-  padding:2vw;
+  padding:2vw 2vw;
   background-color:#f2f2f2;
   border-radius:1vw;
   box-shadow:0px 0px 1vw #ccc;
-  display: grid;
+  display:grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-gap: 10px;
+  grid-gap:1vw;
+ 
 }
-#dataAllTables .clientS form field{
-	 display: grid;
-  grid-template-columns: 30% 70%; /* label column takes 30% of the width, input column takes 70% */
-  align-items: center; /* aligns the label and input vertically */
-  margin-bottom: 10px;
+#dataAllTables .clientS form fieldset{
+	display:grid;
+  grid-template-columns:40% 60%;
+  align-items:center;
+  margin-bottom:10px;
+  border-radius:0.6vw;
+  box-shadow:0px 0px 1vw #ccc;
 }
-#dataAllTables .clientS form label{
-
+#dataAllTables .clientS form fieldset:nth-child(21){
+	grid-template-columns:0% 100%;
 }
-#dataAllTables .clientS form input{
+#dataAllTables .clientS form fieldset input{
 
 }
 #dataAllTables .clientS form  .submit-button {
-background-color: blue;
-color: white;
-padding: 10px;
-border-radius: 5px;
-font-size: 16px;
-border: none;
-cursor: pointer;
-}
-
-/* query form */
-#dataDiv {
-  width:60vw;
-  margin:0 auto;
-  padding:2vw;
-  background-color:#f2f2f2;
-  border-radius:1vw;
-  box-shadow:0px 0px 1vw #ccc;
-}
-#dataDiv h1 {
-  text-align: center;
-  font-size: 2vw;
-  margin: 1vh 0;
-}
-#queryForm {
-  margin: 2vh auto;
-  width: 90%;
-}
-#queryForm label {
-  font-size: 1.5vw;
-  margin-bottom: 1vh;
-}
-#queryForm select,
-#queryForm textarea {
-  width: 100%;
-  padding: 1vw;
-  margin-bottom: 1vh;
-  border-radius: 1vw;
-  font-size: 1.5vw;
-  box-sizing: border-box;
-  border: 0.5vw solid #ccc;
-}
-#queryForm select:focus,
-#queryForm textarea:focus {
-  border: 0.5vw solid #555;
-}
-#queryForm button[type="submit"] {
-  width:100%;
-  padding:1vh;
-  margin-top:1vh;
-  background-color:#4CAF50;
-  color:white;
-  border-radius:1vw;
-  border:none;
-  cursor:pointer;
-  font-size:1.6vw;
-  width:20%;
-}
-#queryForm button[type="submit"]:hover {
-  background-color:#45a049;
-}
-
-/* search query */
-#dataDivResults{
-	width:60vw;
-  margin:0 auto;
-  padding:2vw;
-  background-color:#f2f2f2;
-  border-radius:1vw;
-  box-shadow:0px 0px 1vw #ccc;
-  margin-top:2vw;
-}
-#dataDivResults h1 {
-  text-align:center;
-  font-size:2vw;
-  margin:1vh 0;
-}
-#dataDivResults table {
-  border-collapse: collapse;
-  width: 100%;
-  display:flex;
-}
-#dataDivResults tr {
-  display:flex;
-  flex-direction:column;
-}
-#dataDivResults th, td {
-  border: 1px solid black;
-  padding: 8px;
-  text-align: left;
-}
-
-#dataDivResults th {
-  background-color: #f2f2f2;
-  font-weight: bold;
+	background-color: blue;
+	color: white;
+	padding: 10px;
+	border-radius: 5px;
+	font-size: 16px;
+	border: none;
+	cursor: pointer;
 }

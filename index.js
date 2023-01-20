@@ -37,7 +37,6 @@ app.post("/submit-form", async (req, res) => {
         }
       );
     });
-    // Insert the data into the table with the calculated age
     await new Promise((resolve, reject) => {
       db.run(
         `INSERT INTO ${tableName} (id, name, dob, age, education, profession, father, mother, spouse, address, contact1, contact2, years, maritial, substances, admittedBy, health, diseases, weight, medication, clientImageDefault) 
@@ -64,12 +63,6 @@ app.post("/submit-form", async (req, res) => {
   }
 });
 
-
-
-
-
-
-
 // get all the table names from the database table-namesPOST
 app.get('/table-names', (req, res) => {
 	db.all("SELECT name FROM sqlite_master WHERE type='table'", (err, rows) => {
@@ -80,7 +73,6 @@ app.get('/table-names', (req, res) => {
 	res.json(tableNames);
 	});
 });
-
 app.get('/table-rows/:tableName', (req, res) => {
 	const tableName = req.params.tableName;
 	const query = `SELECT * FROM ${tableName}`;
@@ -90,6 +82,49 @@ app.get('/table-rows/:tableName', (req, res) => {
 		}
 	res.json({ data: rows });
 	});
+});
+
+app.post("/submit-form-data", async (req, res) => {
+	try {
+		const formData = req.body;
+		let tableName = formData.name;
+		tableName = tableName.replace(/ /g, "_");
+		const currentDate = new Date();
+		const dob = new Date(formData.dob);
+		const age = currentDate.getFullYear() - dob.getFullYear();
+		const clientImageDefault = `.//images/clients/${tableName}`;
+		Object.entries(formData).forEach(([key, value]) => {
+			if (!value) {
+				formData[key] = "null";
+			}
+		});
+		let setString = "";
+		Object.entries(formData).forEach(([key, value]) => {
+			if (key !== "id") {
+				setString += `${key} = '${value}', `;
+			}
+		});
+		setString = setString.slice(0, -2);
+		let query = `UPDATE ${tableName} SET ${setString} WHERE id = '${formData.id}'`;
+		await new Promise((resolve, reject) => {
+			db.run(query, (err) => {
+				if (err) {
+					reject(err);
+				}
+				resolve();
+			});
+		});
+		res.json({
+			message: "Form data updated successfully"
+		});
+	} catch (err) {
+		console.error(err);
+		res.status(500).json({
+			error: "Error occured while updating data"
+		});
+	} finally {
+		db.close();
+	}
 });
 
 

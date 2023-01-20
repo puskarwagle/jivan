@@ -14,13 +14,13 @@ window.onload = function showtablenames() {
           .then(response => response.json())
           .then(data => {
             data.data.forEach(row => {
-              const propertiesToDisplay = ["name", "dob", "age", "education", "profession", "father", "mother", "spouse", "address", "contact1", "contact2", "years", "maritial", "substances", "admittedBy", "health", "diseases", "weight", "medication", "clientImageDefault"];
+              const propertiesToDisplay = ["id", "name", "dob", "age", "education", "profession", "father", "mother", "spouse", "address", "contact1", "contact2", "years", "maritial", "substances", "admittedBy", "health", "diseases", "weight", "medication", "clientImageDefault"];
               const editForm = document.createElement('form');
               editForm.id = 'modifyForm';
               editForm.action = '/submit-form-data';
               editForm.method = 'post';
               Object.entries(row).filter(([property, value]) => propertiesToDisplay.includes(property)).forEach(([property, value]) => {
-                const editField = document.createElement('div');
+                const editField = document.createElement('fieldset');
                 const editLabel = document.createElement('label');
                 editLabel.htmlFor = `${property}`;
                 editLabel.textContent = `${property}` + ':';
@@ -34,6 +34,7 @@ window.onload = function showtablenames() {
               });
               const submitForm = document.createElement('input');
               submitForm.type = 'submit';
+              submitForm.classList.add("submit-button");
               editForm.appendChild(submitForm);
               clientS.appendChild(editForm);
             });
@@ -45,8 +46,6 @@ window.onload = function showtablenames() {
       console.error(error);
     });
 };
-
-
 
 // generateUniqueId() function
 function generateUniqueId() {
@@ -62,7 +61,12 @@ let uniqueId = generateUniqueId();
 let dateNow = document.querySelector('#uniqueId');
 dateNow.value = uniqueId;
 
-
+$(document).ready(function(){
+  $('.clientS').click(function(){
+  	console.log("workig");
+    $('#modifyForm').toggle(400);
+  });
+});
 
 // upoad image function
 function uploadImg(){

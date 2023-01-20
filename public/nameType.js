@@ -26,51 +26,99 @@ document.querySelector('#queryForm').addEventListener('submit', (e) => {
 	});
 
 // get the table
-document.querySelector("#queryForm").addEventListener("submit", (e) => {
-    e.preventDefault();
-    const formData = new FormData(e.target);
-    const queryType = formData.get("queryType");
-    const tableName = formData.get("tableName");
-    const keyword = formData.get("query");
-    let url = "/query";
-    let options = {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ queryType, tableName, query }),
-    };
-	fetch(url, options)
-  .then(response => response.json())
-  .then(data => {
-    const container = document.querySelector('#dataDivResults');
-    const table = document.createElement('table');
-    const headerRow = document.createElement('tr');
-    
-    const headers = Object.keys(data.data[0]);
-    headers.forEach(header => {
-      const th = document.createElement('th');
-      th.textContent = header;
-      headerRow.appendChild(th);
+window.onload = function showtablenames() {
+  fetch('/table-names')
+    .then(response => response.json())
+    .then(tableNames => {
+      const divB = document.getElementById('dataAllTables');
+      tableNames.forEach(tableName => {
+        const clientS = document.createElement('div');
+        clientS.className = "clientS";
+        const clientName = document.createElement('b');
+        clientName.textContent = (tableNames.indexOf(tableName) + 1) + ". " + tableName;
+        clientS.appendChild(clientName);
+        // Get the rows for this table
+        fetch(`/table-rows/${tableName}`)
+          .then(response => response.json())
+          .then(data => {
+            data.data.forEach(row => {
+            	const propertiesToDisplay = ["name", "dob", "age", "education", "profession"];
+							Object.entries(row)
+    					.filter(([property, value]) => propertiesToDisplay.includes(property))
+    					.forEach(([property, value]) => {
+    					const rowProperty = document.createElement('span');
+    					rowProperty.textContent = `${value}`;
+    					clientS.appendChild(rowProperty);
+						 });
+						});
+						
+            data.data.forEach(row => {
+            	const propertiesToDisplay = ["name", "dob", "age", "education", "profession", "father", "mother", "spouse", "address", "contact1", "contact2", "years", "maritial", "substances", "admittedBy", "health", "diseases", "weight", "medication", "clientImageDefault"];
+							const editForm = document.createElement('form');
+							editForm.id = 'modifyForm';
+							editForm.action = '/submit-form-data';
+							editForm.method = 'post';
+							const submitForm = document.createElement('input');
+							submitForm.type = 'submit';
+							submitForm.classList.add("submit-button");
+							Object.entries(row)
+    					.filter(([property, value]) => propertiesToDisplay.includes(property))
+    					.forEach(([property, value]) => {
+    							const editField = document.createElement('field');
+    							const editLabel = document.createElement('label');
+    							editLabel.htmlFor = `${property}`;
+    							editLabel.textContent = `${property}` + ':';
+    							const editInput = document.createElement('input');
+    							editInput.type = 'text';
+    							editInput.name = `${property}`;
+    							editInput.value = `${value}`;
+    								editField.appendChild(editLabel);
+    								editField.appendChild(editInput);
+    								editForm.appendChild(editField);
+						 			});
+						 		editForm.appendChild(submitForm);
+								clientS.appendChild(editForm);
+						});	
+						divB.appendChild(clientS);
+    })
+    .catch(error => {
+      console.error(error);
     });
-    table.appendChild(headerRow);
-    // Populate the table with data
-    data.data.forEach(row => {
-      const tr = document.createElement('tr');
-      headers.forEach(header => {
-        const td = document.createElement('td');
-        td.textContent = row[header];
-        tr.appendChild(td);
-      });
-      table.appendChild(tr);
+};
+
+window.onload = function showtablenames() {
+  fetch('/table-names').then(response => response.json()).then(tableNames => {
+    const divB = document.getElementById('dataAllTables');
+    tableNames.forEach(tableName => {
+      const clientS = document.createElement('div');
+      clientS.className = "clientS";
+      const clientName = document.createElement('b');
+      clientName.textContent = (tableNames.indexOf(tableName) + 1) + ". " + tableName;
+      clientS.appendChild(clientName);
+      // Get the rows for this table
+      fetch(`/table-rows/${tableName}`)
+        .then(response => response.json())
+        .then(data => {
+          data.data.forEach(row => {
+            const propertiesToDisplay = ["name", "dob", "age", "education", "profession"];
+            Object.entries(row)
+              .filter(([property, value]) => propertiesToDisplay.includes(property))
+              .forEach(([property, value]) => {
+                const rowProperty = document.createElement('span');
+                rowProperty.textContent = `${value}`;
+                clientS.appendChild(rowProperty);
+              });
+          });
+          divB.appendChild(clientS);
+        });
     });
-    // Add the table to the container
-    container.appendChild(table);
-  })
-  .catch(error => {
+  }).catch(error => {
     console.error(error);
   });
-});
+};
+
+
+
 
 //Search and select keyword
 app.post('/query', (req, res) => {

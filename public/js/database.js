@@ -14,34 +14,30 @@ window.onload = function showtablenames() {
           .then(response => response.json())
           .then(data => {
             data.data.forEach(row => {
-            	const propertiesToDisplay = ["name", "dob", "age", "education", "profession"];
-							Object.entries(row)
-    					.filter(([property, value]) => propertiesToDisplay.includes(property))
-    					.forEach(([property, value]) => {
-    					const rowProperty = document.createElement('span');
-    					rowProperty.textContent = `${value}`;
-    					clientS.appendChild(rowProperty);
-						 });
-            data.data.forEach(row => {
-            	const propertiesToDisplay = ["name", "dob", "age", "education", "profession", "father", "mother", "spouse", "address", "contact1", "contact2", "years", "maritial", "substances", "admittedBy", "health", "diseases", "weight", "medication", "clientImageDefault"];
-							const editForm = document.createElement('form');
-							Object.entries(row)
-    					.filter(([property, value]) => propertiesToDisplay.includes(property))
-    					.forEach(([property, value]) => {
-    							const editField = document.createElement('field');
-    							const editLabel = document.createElement('label');
-    							editLabel.htmlFor = `${property}`;
-    							const editInput = document.createElement('input');
-    							editInput.type = 'text';
-    							editInput.name = `${property}`;
-    							editInput.value = `${value}`;
-    						editForm.appendChild(editLabel);
-    						editForm.appendChild(editInput);
-						 });
-					clientS.appendChild(editForm);
-						 });
-					divB.appendChild(clientS);
+              const propertiesToDisplay = ["name", "dob", "age", "education", "profession", "father", "mother", "spouse", "address", "contact1", "contact2", "years", "maritial", "substances", "admittedBy", "health", "diseases", "weight", "medication", "clientImageDefault"];
+              const editForm = document.createElement('form');
+              editForm.id = 'modifyForm';
+              editForm.action = '/submit-form-data';
+              editForm.method = 'post';
+              Object.entries(row).filter(([property, value]) => propertiesToDisplay.includes(property)).forEach(([property, value]) => {
+                const editField = document.createElement('div');
+                const editLabel = document.createElement('label');
+                editLabel.htmlFor = `${property}`;
+                editLabel.textContent = `${property}` + ':';
+                const editInput = document.createElement('input');
+                editInput.type = 'text';
+                editInput.name = `${property}`;
+                editInput.value = `${value}`;
+                editField.appendChild(editLabel);
+                editField.appendChild(editInput);
+                editForm.appendChild(editField);
+              });
+              const submitForm = document.createElement('input');
+              submitForm.type = 'submit';
+              editForm.appendChild(submitForm);
+              clientS.appendChild(editForm);
             });
+            divB.appendChild(clientS);
           });
       });
     })
@@ -52,12 +48,21 @@ window.onload = function showtablenames() {
 
 
 
-
-
-
-// date function
+// generateUniqueId() function
+function generateUniqueId() {
+	const cletters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	const sletters = "abcdefghijklmnopqrstuvwxyz";
+	const timestamp = Date.now().toString().substr(-4);
+	const randomLetter1 = cletters[Math.floor(Math.random() * cletters.length)];
+	const randomLetter2 = sletters[Math.floor(Math.random() * sletters.length)];
+	const uniqueId = randomLetter1 + timestamp + randomLetter2;
+	return uniqueId;
+};
+let uniqueId = generateUniqueId();
 let dateNow = document.querySelector('#uniqueId');
-dateNow.value = Date.now();
+dateNow.value = uniqueId;
+
+
 
 // upoad image function
 function uploadImg(){

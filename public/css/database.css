@@ -132,28 +132,58 @@ fieldset span {
   margin: 1vh 0;
 }
 #dataAllTables .clientS {
-  text-align:left;
   border:2px groove blue;
   border-radius:0.4vw;
   box-shadow:0px 0px 1vw #ccc;
   padding:1vh 1vw;
-  display:flex;
 }
 #dataAllTables .clientS b {
   font-size: 2vw;
   color:red;
+  display:flex;
+  margin:0 auto 0 0;
+}
+#dataAllTables .clientS span {
+  padding:0 0 0 2vw;
+  display:inline-flex;
+  margin:0 0 0 auto;
 }
 #dataAllTables .clientS img {
   height:8vw;
   margin-left:auto;
 }
 #dataAllTables .clientS form {
-  display:flex;
-  flex-direction:column;
+  width:60vw;
+  margin:2vw 2vw;
+  padding:2vw;
+  background-color:#f2f2f2;
+  border-radius:1vw;
+  box-shadow:0px 0px 1vw #ccc;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
 }
+#dataAllTables .clientS form field{
+	 display: grid;
+  grid-template-columns: 30% 70%; /* label column takes 30% of the width, input column takes 70% */
+  align-items: center; /* aligns the label and input vertically */
+  margin-bottom: 10px;
+}
+#dataAllTables .clientS form label{
 
+}
+#dataAllTables .clientS form input{
 
-
+}
+#dataAllTables .clientS form  .submit-button {
+background-color: blue;
+color: white;
+padding: 10px;
+border-radius: 5px;
+font-size: 16px;
+border: none;
+cursor: pointer;
+}
 
 /* query form */
 #dataDiv {

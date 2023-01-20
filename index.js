@@ -21,9 +21,14 @@ app.post("/submit-form", async (req, res) => {
     const dob = new Date(formData.dob);
     const age = currentDate.getFullYear() - dob.getFullYear();
     const clientImageDefault = `.//images/clients/${tableName}`;
+    Object.entries(formData).forEach(([key, value]) => {
+    if (!value) {
+        formData[key] = "null";
+  	  }
+		});
     await new Promise((resolve, reject) => {
       db.run(
-        `CREATE TABLE ${tableName} ( id INTEGER, name TEXT, dob DATE, age INTEGER, education TEXT, profession TEXT, father TEXT, mother TEXT, spouse TEXT, address TEXT, contact1 INTEGER, contact2 INTEGER, years INTEGER, maritial TEXT, substances TEXT, admittedBy TEXT, health TEXT, diseases TEXT, weight INTEGER, medication TEXT, clientImageDefault TEXT )`,
+        `CREATE TABLE ${tableName} ( id TEXT, name TEXT, dob DATE, age INTEGER, education TEXT, profession TEXT, father TEXT, mother TEXT, spouse TEXT, address TEXT, contact1 INTEGER, contact2 INTEGER, years INTEGER, maritial TEXT, substances TEXT, admittedBy TEXT, health TEXT, diseases TEXT, weight INTEGER, medication TEXT, clientImageDefault TEXT )`,
         (err) => {
           if (err) {
             reject(err);

@@ -107,7 +107,7 @@ window.onload = function showtablenames() {
           .then(response => response.json())
           .then(data => {
             data.data.forEach(row => {
-              const propertiesToDisplay = ["name", "dob", "age", "education", "profession", "father", "mother", "spouse", "address", "contact1", "contact2", "years", "maritial", "substances", "admittedBy", "health", "diseases", "weight", "medication", "clientImageDefault"];
+              const propertiesToDisplay = ["id", "name", "dob", "age", "education", "profession", "father", "mother", "spouse", "address", "contact1", "contact2", "years", "maritial", "substances", "admittedBy", "health", "diseases", "weight", "medication", "clientImageDefault"];
               const editForm = document.createElement('form');
               editForm.id = 'modifyForm';
               editForm.action = '/submit-form-data';
@@ -131,9 +131,8 @@ window.onload = function showtablenames() {
               editForm.appendChild(submitForm);
               clientS.appendChild(editForm);
             });
-            
+            divB.appendChild(clientS);
           });
-          divB.appendChild(clientS);
       });
     })
     .catch(error => {
@@ -164,3 +163,71 @@ const formInputs = {
     medication: 'text'
     clientImageDefault
 };
+
+
+// Fetch tablerows as per tablenames 
+function showTableRows(tableName) {
+  fetch(`/table-rows/${tableName}`)
+    .then(response => response.json())
+    .then(data => {
+      const divB = document.getElementById('dataAllTables');
+      divB.innerHTML = '';
+      data.data.forEach(row => {
+        const propertiesToDisplay = ["id", "name", "dob", "age", "education", "profession", "father", "mother", "spouse", "address", "contact1", "contact2", "years", "maritial", "substances", "admittedBy", "health", "diseases", "weight", "medication", "clientImageDefault"];
+        const editForm = document.createElement('form');
+        editForm.id = 'modifyForm';
+        editForm.action = '/submit-form-data';
+        editForm.method = 'post';
+        Object.entries(row).filter(([property, value]) => propertiesToDisplay.includes(property)).forEach(([property, value]) => {
+          const editField = document.createElement('fieldset');
+          const editLabel = document.createElement('label');
+          editLabel.htmlFor = `${property}`;
+          editLabel.textContent = `${property} + ':'`;
+          const editInput = document.createElement('input');
+          editInput.type = 'text';
+          editInput.name = `${property}`;
+          editInput.value = `${value}`;
+          editField.appendChild(editLabel);
+          editField.appendChild(editInput);
+          editForm.appendChild(editField);
+        });
+        const submitForm = document.createElement('input');
+        submitForm.type = 'submit';
+        submitForm.classList.add("submit-button");
+        editForm.appendChild(submitForm);
+        divB.appendChild(editForm);
+      });
+    });
+};
+
+// Function 1 - Show all table names
+function showTableNames() {
+  fetch('/table-names')
+    .then(response => response.json())
+    .then(tableNames => {
+        const divB = document.getElementById('dataAllTables');
+        tableNames.forEach(tableName => {
+           const clientS = document.createElement('div');
+           clientS.className = "clientS";
+           const clientName = document.createElement('b');
+           clientName.textContent = (tableNames.indexOf(tableName) + 1) + ". " + tableName;
+           clientS.appendChild(clientName);
+        });
+    });
+};
+
+// Initial call to show all table names
+window.onload = showTableNames;
+
+// Event listener to show rows for selected table
+document.getElementById('dataAllTables').addEventListener('click', (event) => {
+	if (event.target.tagName === 'B') {
+		const tableName = event.target.textContent.split('. ')[1];
+		showTableRows(tableName);
+	}
+});
+
+// to call the function when click on the table name
+
+
+

@@ -4,6 +4,14 @@
   flex-direction:column;
   align-items:center;
 }
+#database #header {
+	display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+#database #header:th-child(3) {
+	margin:-1vw 
+}
 #clientDetails {
   text-align:left;
   width:90%;
@@ -151,7 +159,7 @@ fieldset span {
   height:8vw;
   margin-left:auto;
 }
-#dataAllTables .clientS form {
+#dataAllTables form {
   width:60vw;
   margin:2vw 2vw;
   padding:2vw 2vw;
@@ -163,21 +171,21 @@ fieldset span {
   grid-gap:1vw;
  
 }
-#dataAllTables .clientS form fieldset{
+#dataAllTables form fieldset{
 	display:grid;
   grid-template-columns:40% 60%;
   align-items:center;
   margin-bottom:10px;
   border-radius:0.6vw;
-  box-shadow:0px 0px 1vw #ccc;
+  box-shadow:0px 0px 1vw #red;
 }
-#dataAllTables .clientS form fieldset:nth-child(21){
+#dataAllTables form fieldset:nth-child(21){
 	grid-template-columns:0% 100%;
 }
-#dataAllTables .clientS form fieldset input{
+#dataAllTables form fieldset input{
 
 }
-#dataAllTables .clientS form  .submit-button {
+#dataAllTables form  .submit-button {
 	background-color: blue;
 	color: white;
 	padding: 10px;

@@ -1,27 +1,27 @@
-// Function 1 - Show all table names
-function showTableNames() {
-  fetch('/table-names')
+
+
+// Function 2 Get the names of Clients
+function showRowNames() {
+  fetch('/row-names')
     .then(response => response.json())
-    .then(tableNames => {
-    console.log('1');
+    .then(rowNames => {
       const divB = document.getElementById('dataAllTables');
-      tableNames.forEach(tableName => {
+      rowNames.forEach(rowName => {
         const clientS = document.createElement('div');
         clientS.className = "clientS";
         const clientName = document.createElement('b');
-        clientName.textContent = (tableNames.indexOf(tableName) + 1) + ". " + tableName;
+        clientName.textContent = (rowNames.indexOf(rowName) + 1) + ". " + rowName;
         clientS.appendChild(clientName);
         divB.appendChild(clientS);
-        console.log('2');
       });
     })
 };
-window.onload = showTableNames;
+window.onload = showRowNames;
 
 
-// Fetch tablerows as per tablenames 
-function showTableRows(tableName) {
-  fetch(`/table-rows/${tableName}`)
+// Function 3 Fetch rows as per names and display them in a form
+function showClientsRows(name) {
+  fetch(`/clients-rows?name=${name}`)
     .then(response => response.json())
     .then(data => {
       const divB = document.getElementById('dataAllTables');
@@ -51,11 +51,12 @@ function showTableRows(tableName) {
         editForm.appendChild(submitForm);
         divB.appendChild(editForm);
         
-        const backButton = document.createElement('button');
+          const backButton = document.createElement('button');
 				backButton.textContent = 'All Clients';
 				backButton.id = 'back-button';
 				backButton.onclick = function() {
-  				showTableNames();
+            document.getElementById('modifyForm').remove();
+  				  showRowNames();
 				};
 				divB.appendChild(backButton);
       });
@@ -64,8 +65,8 @@ function showTableRows(tableName) {
 // Event listener to show rows for selected table
 document.getElementById('dataAllTables').addEventListener('click', (event) => {
 	if (event.target.tagName === 'B') {
-		const tableName = event.target.textContent.split('. ')[1];
-		showTableRows(tableName);
+		const rowName = event.target.textContent.split('. ')[1];
+		showClientsRows(rowName);
 	}
 });
 

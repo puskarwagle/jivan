@@ -83,25 +83,25 @@ fieldset span {
   background-color:#4CAF50;
   border:none;
   color:white;
-  padding:1.5vh 2vw;
   text-align:center;
   text-decoration:none;
-  display:inline-block;
   font-size:1.6vw;
   margin:2vh 0;
+  padding:0.5vh 2vw;
   cursor:pointer;
   border-radius:4px;
+  display:inline-block;
 }
-#cancel {
+#refresh {
   background-color:#f44336;
   border:none;
   color:white;
-  padding:1.5vh 2vw;
   text-align:center;
   text-decoration:none;
   display:inline-block;
   font-size:1.6vw;
-  margin:2vh 0;
+  margin:2vh 2vw;
+  padding:0.5vh 2vw;
   cursor:pointer;
   border-radius:4px;
 }
@@ -110,10 +110,10 @@ fieldset span {
   opacity:0.8;
 }
 #save:active,
-#cancel:active {
+#refresh:active {
   background-color:#3e8e41;
 }
-#cancel:active {
+#refresh:active {
   background-color:#e70000;
 }
 
@@ -126,7 +126,7 @@ fieldset span {
 
 /* all the database data */
 #dataAllTables {
-  width:95vw;
+  width:90vw;
   margin:2vw 2vw;
   padding:2vw;
   background-color:#f2f2f2;
@@ -139,14 +139,14 @@ fieldset span {
   margin:1vh 0;
 }
 #dataAllTables .clientS {
-  border:2px groove blue;
+  border:2px groove white;
   border-radius:0.4vw;
   box-shadow:0px 0px 1vw #ccc;
   padding:1vh 1vw;
 }
 #dataAllTables .clientS b {
   font-size: 2vw;
-  color:red;
+  color:#000000;
   display:flex;
   margin:0 auto 0 0;
 }
@@ -160,7 +160,6 @@ fieldset span {
   margin-left:auto;
 }
 #dataAllTables form {
-  width:60vw;
   margin:2vw 2vw;
   padding:2vw 2vw;
   background-color:#f2f2f2;
@@ -169,7 +168,7 @@ fieldset span {
   display:grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap:1vw;
- 
+
 }
 #dataAllTables form fieldset{
 	display:grid;
@@ -182,8 +181,12 @@ fieldset span {
 #dataAllTables form fieldset:nth-child(21){
 	grid-template-columns:0% 100%;
 }
-#dataAllTables form fieldset input{
-
+#dataAllTables #back-button{
+  margin-bottom:1.5vw;
+  padding:0.5vh 1vw;
+  border-radius:0.6vw;
+  box-shadow:0px 0px 1vw #red;
+  font-size:2vw;
 }
 #dataAllTables form  .submit-button {
 	background-color: blue;

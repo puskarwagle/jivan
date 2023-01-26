@@ -2,7 +2,7 @@ const express = require('express');
 const ejs = require('ejs');
 const fs = require('fs');
 const sqlite3 = require('sqlite3').verbose();
-const db = new sqlite3.Database('./database/formdata.db');
+const db = new sqlite3.Database('./database/formData.db');
 const errorHandler = require('errorhandler');
 const PORT = process.env.PORT || 4000;
 const app = express();
@@ -12,36 +12,24 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(errorHandler());
 
+// 1. Submitting the Main form
 app.post("/submit-form", async (req, res) => {
   try {
     const formData = req.body;
-    let tableName = formData.name;
-    tableName = tableName.replace(/ /g, "_");
     const currentDate = new Date();
     const dob = new Date(formData.dob);
-    const age = currentDate.getFullYear() - dob.getFullYear();
-    const clientImageDefault = `.//images/clients/${tableName}`;
+    formData.age = currentDate.getFullYear() - dob.getFullYear();
+    formData.clientImageDefault = `./images/clients/${formData.name.replace(/ /g, "_")}`;
     Object.entries(formData).forEach(([key, value]) => {
-    if (!value) {
+      if (!value) {
         formData[key] = "null";
-  	  }
-		});
-    await new Promise((resolve, reject) => {
-      db.run(
-        `CREATE TABLE ${tableName} ( id TEXT, name TEXT, dob DATE, age INTEGER, education TEXT, profession TEXT, father TEXT, mother TEXT, spouse TEXT, address TEXT, contact1 INTEGER, contact2 INTEGER, years INTEGER, maritial TEXT, substances TEXT, admittedBy TEXT, health TEXT, diseases TEXT, weight INTEGER, medication TEXT, clientImageDefault TEXT )`,
-        (err) => {
-          if (err) {
-            reject(err);
-          }
-          resolve();
-        }
-      );
+      }
     });
     await new Promise((resolve, reject) => {
       db.run(
-        `INSERT INTO ${tableName} (id, name, dob, age, education, profession, father, mother, spouse, address, contact1, contact2, years, maritial, substances, admittedBy, health, diseases, weight, medication, clientImageDefault) 
+        `INSERT INTO Clients (id, name, dob, age, education, profession, father, mother, spouse, address, contact1, contact2, years, maritial, substances, admittedBy, health, diseases, weight, medication, clientImageDefault) 
         VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`,
-        [formData.id, formData.name, formData.dob, age, formData.education, formData.profession, formData.father, formData.mother, formData.spouse, formData.address, formData.contact1, formData.contact2, formData.years, formData.maritial, formData.substances, formData.admittedBy, formData.health, formData.diseases, formData.weight, formData.medication, clientImageDefault],
+        [formData.id, formData.name, formData.dob, formData.age, formData.education, formData.profession, formData.father, formData.mother, formData.spouse, formData.address, formData.contact1, formData.contact2, formData.years, formData.maritial, formData.substances, formData.admittedBy, formData.health, formData.diseases, formData.weight, formData.medication, formData.clientImageDefault],
         function(err) {
           if (err) {
             reject(err);
@@ -59,40 +47,43 @@ app.post("/submit-form", async (req, res) => {
       error: "Error occured while inserting data"
     });
   } finally {
-    db.close();
+   // db.close();
   }
 });
 
-// get all the table names from the database table-namesPOST
-app.get('/table-names', (req, res) => {
-	db.all("SELECT name FROM sqlite_master WHERE type='table'", (err, rows) => {
-		if (err) {
-			return res.status(500).json({ error: err.message });
-			}
-	let tableNames = rows.map(row => row.name);
-	res.json(tableNames);
-	});
+
+// 2. get all the table names from the database table-namesPOST
+app.get('/row-names', (req, res) => {
+  db.all("SELECT name FROM Clients", (err, rows) => {
+    if (err) {
+      return res.status(500).json({ error: err.message });
+    }
+    let rowNames = rows.map(row => row.name);
+    res.json(rowNames);
+  });
 });
-app.get('/table-rows/:tableName', (req, res) => {
-	const tableName = req.params.tableName;
-	const query = `SELECT * FROM ${tableName}`;
+
+
+// 3. Get the data of selected row
+app.get('/clients-rows', (req, res) => {
+	const name = req.query.name;
+	const query = `SELECT * FROM Clients WHERE name = '${name}'`;
 	db.all(query, (err, rows) => {
 		if (err) {
 			return res.status(500).json({ error: err.message });
 		}
-	res.json({ data: rows });
+		res.json({ data: rows });
 	});
 });
 
+
+// 4. Modify form
 app.post("/submit-form-data", async (req, res) => {
 	try {
 		const formData = req.body;
-		let tableName = formData.name;
-		tableName = tableName.replace(/ /g, "_");
 		const currentDate = new Date();
 		const dob = new Date(formData.dob);
 		const age = currentDate.getFullYear() - dob.getFullYear();
-		const clientImageDefault = `.//images/clients/${tableName}`;
 		Object.entries(formData).forEach(([key, value]) => {
 			if (!value) {
 				formData[key] = "null";
@@ -105,7 +96,7 @@ app.post("/submit-form-data", async (req, res) => {
 			}
 		});
 		setString = setString.slice(0, -2);
-		let query = `UPDATE ${tableName} SET ${setString} WHERE id = '${formData.id}'`;
+		let query = `UPDATE Clients SET ${setString} WHERE id = '${formData.id}'`;
 		await new Promise((resolve, reject) => {
 			db.run(query, (err) => {
 				if (err) {
@@ -123,7 +114,7 @@ app.post("/submit-form-data", async (req, res) => {
 			error: "Error occured while updating data"
 		});
 	} finally {
-		db.close();
+		// db.close();
 	}
 });
 

@@ -3,6 +3,7 @@ const ejs = require('ejs');
 const fs = require('fs');
 const sqlite3 = require('sqlite3').verbose();
 const db = new sqlite3.Database('./database/formData.db');
+const multer = require('multer');
 const errorHandler = require('errorhandler');
 const PORT = process.env.PORT || 4000;
 const app = express();
@@ -13,13 +14,25 @@ app.use(express.urlencoded({ extended: true }));
 app.use(errorHandler());
 
 // 1. Submitting the Main form
-app.post("/submit-form", async (req, res) => {
+
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'public/images/clients/');
+  },
+  filename: (req, file, cb) => {
+    cb(null, `${req.body.name.replace(/ /g, "_")}-${Date.now()}.${file.mimetype.split('/')[1]}`);
+  }
+});
+
+const upload = multer({ storage });
+
+app.post("/submit-form", upload.single('image'), async (req, res) => {
   try {
     const formData = req.body;
     const currentDate = new Date();
     const dob = new Date(formData.dob);
     formData.age = currentDate.getFullYear() - dob.getFullYear();
-    formData.clientImageDefault = `./images/clients/${formData.name.replace(/ /g, "_")}`;
+    formData.clientImageDefault = `/images/clients/${req.file.filename}`;
     Object.entries(formData).forEach(([key, value]) => {
       if (!value) {
         formData[key] = "null";
@@ -50,6 +63,7 @@ app.post("/submit-form", async (req, res) => {
    // db.close();
   }
 });
+
 
 
 // 2. get all the table names from the database table-namesPOST

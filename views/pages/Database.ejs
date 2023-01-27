@@ -12,7 +12,7 @@
     </div>
     
     <div id="clientDetails">
-      <form id="clientForm" method="post" action="/submit-form">
+      <form id="clientForm" method="post" action="/submit-form" enctype="multipart/form-data">
       	<img id="backG" src="./images/image.png" alt="background image">
 
         <fieldset>
@@ -28,6 +28,11 @@
           	<input type="text" name="name" id="name" required><br>
           </field>
           
+          <field>
+          	<label for="image">Image:</label>
+          	<input type="file" name="image" id="image">
+          </field>
+
         	<field>
           	<label for="admission">Admission:</label>
           	<input type="date" name="admission" id="admission" ><br>

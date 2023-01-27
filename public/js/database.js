@@ -26,7 +26,7 @@ function showClientsRows(name) {
       divB.innerHTML = '';
       data.data.forEach(row => {
         // create the form and input fields as before
-        const propertiesToDisplay = ["id", "name", "dob", "age", "education", "profession", "father", "mother", "spouse", "address", "contact1", "contact2", "years", "maritial", "substances", "admittedBy", "health", "diseases", "weight", "medication", "clientImageDefault"];
+        const propertiesToDisplay = ["id", "name", "dob", "age", "education", "profession", "father", "mother", "spouse", "address", "contact1", "contact2", "years", "maritial", "substances", "admittedBy", "health", "diseases", "weight", "medication"];
         const editForm = document.createElement('form');
         editForm.id = 'modifyForm';
         editForm.action = '/submit-form-data';
@@ -46,10 +46,14 @@ function showClientsRows(name) {
         });
         const submitForm = document.createElement('input');
         submitForm.type = 'submit';
-        submitForm.textContent = 'Update';
+        submitForm.value = 'Modify/Update';
         submitForm.classList.add("submit-button");
         editForm.appendChild(submitForm);
-        divB.appendChild(editForm);
+
+        const clientImg = document.createElement('img');
+        clientImg.alt = row.clientImageDefault;
+        clientImg.src = row.clientImageDefault;
+        clientImg.id = 'clientImage';
         
           const backButton = document.createElement('button');
 				backButton.textContent = 'All Clients';
@@ -57,9 +61,10 @@ function showClientsRows(name) {
 				backButton.onclick = function() {
             document.getElementById('modifyForm').remove();
             document.getElementById('deleteButton').remove();
+            document.getElementById('clientImage').remove();
   				  showRowNames();
            };
-        // create the delete button
+
         const deleteButton = document.createElement('button');
         deleteButton.textContent = `Delete ${row.name}`;
         deleteButton.id = 'deleteButton';
@@ -83,7 +88,9 @@ function showClientsRows(name) {
     });
         };
          divB.appendChild(backButton);
+         divB.appendChild(clientImg);
          divB.appendChild(deleteButton);
+         divB.appendChild(editForm);
       });
     })
 };
@@ -94,10 +101,6 @@ document.getElementById('dataAllTables').addEventListener('click', (event) => {
 		showClientsRows(rowName);
 	}
 });
-
-/*
-
-*/
 
 // generateUniqueId() function
 function generateUniqueId() {

@@ -38,8 +38,8 @@ app.post("/submit-form", async (req, res) => {
         }
       );
     });
-    res.json({
-      message: "Form data inserted successfully"
+    res.status(201).json({
+       message: "Form data inserted successfully"
     });
   } catch (err) {
     console.error(err);
@@ -60,6 +60,17 @@ app.get('/row-names', (req, res) => {
     }
     let rowNames = rows.map(row => row.name);
     res.json(rowNames);
+  });
+});
+
+// Delete the row
+app.post('/delete-row', (req, res) => {
+  const { name } = req.body;
+  db.run(`DELETE FROM clients WHERE name = "${name}"`, (err) => {
+    if (err) {
+      return res.status(500).json({ error: err.message });
+    }
+    return res.status(200).json({ message: `${name} deleted` });
   });
 });
 

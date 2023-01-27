@@ -1,5 +1,3 @@
-
-
 // Function 2 Get the names of Clients
 function showRowNames() {
   fetch('/row-names')
@@ -17,9 +15,9 @@ function showRowNames() {
     })
 };
 window.onload = showRowNames;
+console.log("here");
 
 
-// Function 3 Fetch rows as per names and display them in a form
 function showClientsRows(name) {
   fetch(`/clients-rows?name=${name}`)
     .then(response => response.json())
@@ -27,6 +25,7 @@ function showClientsRows(name) {
       const divB = document.getElementById('dataAllTables');
       divB.innerHTML = '';
       data.data.forEach(row => {
+        // create the form and input fields as before
         const propertiesToDisplay = ["id", "name", "dob", "age", "education", "profession", "father", "mother", "spouse", "address", "contact1", "contact2", "years", "maritial", "substances", "admittedBy", "health", "diseases", "weight", "medication", "clientImageDefault"];
         const editForm = document.createElement('form');
         editForm.id = 'modifyForm';
@@ -47,6 +46,7 @@ function showClientsRows(name) {
         });
         const submitForm = document.createElement('input');
         submitForm.type = 'submit';
+        submitForm.textContent = 'Update';
         submitForm.classList.add("submit-button");
         editForm.appendChild(submitForm);
         divB.appendChild(editForm);
@@ -56,9 +56,34 @@ function showClientsRows(name) {
 				backButton.id = 'back-button';
 				backButton.onclick = function() {
             document.getElementById('modifyForm').remove();
+            document.getElementById('deleteButton').remove();
   				  showRowNames();
-				};
-				divB.appendChild(backButton);
+           };
+        // create the delete button
+        const deleteButton = document.createElement('button');
+        deleteButton.textContent = `Delete ${row.name}`;
+        deleteButton.id = 'deleteButton';
+        deleteButton.onclick = function() {
+          fetch('/delete-row', {
+        method: 'post',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name: row.name }),
+    }).then(response => response.json())
+    .then(data => {
+        if (data.error) {
+            alert(data.error);
+        } else {
+            alert(data.message);
+            deleteButton.innerHTML = row.name + ' Deleted';
+            deleteButton.style.backgroundColor = 'white';
+            deleteButton.style.color = 'red';
+        }
+    });
+        };
+         divB.appendChild(backButton);
+         divB.appendChild(deleteButton);
       });
     })
 };
@@ -69,6 +94,10 @@ document.getElementById('dataAllTables').addEventListener('click', (event) => {
 		showClientsRows(rowName);
 	}
 });
+
+/*
+
+*/
 
 // generateUniqueId() function
 function generateUniqueId() {
@@ -96,6 +125,4 @@ function uploadImg(){
 	let clientImg = document.querySelector('#clientImg');
 	let clientName = document.querySelector('#name');
 	clientImg.src = './images/clients/' + clientName.value;
-}
-
-console.log("hi");
+};

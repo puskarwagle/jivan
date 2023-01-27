@@ -8,19 +8,19 @@
 	display:flex;
   flex-direction:column;
   align-items:center;
+  text-align:center;
+  white-space: nowrap;
 }
-#database #header:th-child(3) {
-	margin:-1vw 
+#database #header #dataLogo {
+  width:8rem;
+  position:absolute;
+  left:3vw;
+  top:3vw;
 }
 #clientDetails {
   text-align:left;
   width:90%;
-}
-#database #dataLogo {
-  width:8rem;
-  position:absolute;
-  left:2rem;
-  top:0.5rem;
+  margin:2vw 0 0 0;
 }
 form#clientForm {
 	border:2px groove skyblue; 
@@ -182,11 +182,22 @@ fieldset span {
 	grid-template-columns:0% 100%;
 }
 #dataAllTables #back-button{
+  margin:0 1.5vw 1.5vw 0;
+  padding:0.5vh 1vw;
+  border-radius:0.6vw;
+  box-shadow:0px 0px 1vw #red;
+  font-size:2vw;
+  color:white;
+  background-color:orange;
+}
+#dataAllTables #deleteButton{
   margin-bottom:1.5vw;
   padding:0.5vh 1vw;
   border-radius:0.6vw;
   box-shadow:0px 0px 1vw #red;
   font-size:2vw;
+  color:white;
+  background-color:red;
 }
 #dataAllTables form  .submit-button {
 	background-color: blue;
